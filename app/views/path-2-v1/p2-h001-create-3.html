@@ -1,0 +1,107 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l">H001: Notification/request for information</span>
+      <h1>Personal details request</h1>
+
+
+      <form action="p2-h001-create-5" method="post">
+        
+        <div class="nhsuk-form-group">
+        
+
+            <div class="nhsuk-form-group">
+              <p class="nhsuk-u-margin-bottom-1">Details of other</p>
+              <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+                <option value="1" selected>Please select</option>
+                <option value="2">Family name(s)</option>
+                <option value="3">Forenames (s)</option>
+                <option value="4">Date of birth</option>
+                <option value="5">Sex</option>
+                <option value="6">Family name(s) at birth</option>
+                <option value="7">Forename(s) at birth</option>
+                <option value="8">Place of birth</option>
+                <option value="9">Father's family name at birth</option>
+                <option value="10">Forename of father</option>
+                <option value="11">Mother's family name at birth</option>
+                <option value="12">Forename of mother</option>
+                <option value="13">Previous names</option>
+                <option value="14">Nationality</option>
+              </select>        
+            </div>    
+      <hr>
+
+      <h1 class="nhsuk-heading-l">Sector personal identification number (PIN) for receiving institution</h1>
+<!--part 4-->
+            <div class="nhsuk-form-group">
+              <p class="nhsuk-u-margin-bottom-1">Sector PIN for receiving institution</p>
+              <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+                <option value="1" selected>Please select</option>
+                <option value="2">All</option>
+                <option value="3">Sickness in cash</option>
+                <option value="4">Sickness in kind</option>
+                <option value="5">Pension</option>
+                <option value="6">Unemployment</option>
+                <option value="7">Occupational disease and accident at work, benefits in cash</option>
+                <option value="8">Occupational disease and accident at work, benefits in kind</option>
+                <option value="9">Family benefits</option>
+                <option value="10">Recovery</option>
+                <option value="11">Other</option>
+              </select>        
+            </div>    
+            <div class="nhsuk-form-group">
+              <p class="nhsuk-u-margin-bottom-1">Please enter the other sector PIN if you selected 'Other'.</p>
+              <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+            </div>
+
+        </div>    
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

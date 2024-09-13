@@ -1,0 +1,118 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="x009-choose">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+      <span class="nhsuk-caption-l">X009: Reminder</span>
+      <h1 class="nhsuk-heading-xl">Reimbursement</h1>
+
+      <form action="x009-success" method="post">
+        
+           
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Reimbursement request ID </p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Total number of individual claims </p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+        
+        <hr>
+    <h2 class="nhsuk-heading-m nhsuk-u-margin-top-6">Reminder to send us:</h2>
+
+        </fieldset>
+
+        <div class="nhsuk-form-group">
+
+          <label class="nhsuk-label nhsuk-u-margin-bottom-2" for="x009-information">Type</label>
+
+          <div class="nhsuk-radios--inline">
+      
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-information-document" name="x009-information" type="radio" value="Document" {{ checked("x009-information", "Document") }} >
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-patient">Document</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-information-information" name="x009-information" type="radio" value="Information" {{ checked("x009-information", "Information") }} >
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-someone">Information</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-information-sed" name="x009-information" type="radio" value="SED" {{ checked("x009-information", "SED") }} >
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-parent">SED</label>
+            </div>
+      
+          </div>
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-u-margin-bottom-2" for="x009-details">
+            Details
+          </label>
+          <textarea class="nhsuk-textarea " id="x009-details" name="x009-details" rows="5" value="{{ data['x009-details'] }}"></textarea>
+        </div>
+          </div>
+        </div>
+
+
+
+       
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

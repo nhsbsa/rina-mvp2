@@ -1,0 +1,67 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- LEGACY OHS SCREEN: Extends the layout from /views/layout-ohs.html -->
+{% extends 'layout-ohs.html' %}
+
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="ohs-case-success" method="post">
+
+        <div class="nhsuk-card confirmation-box nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+          <div class="nhsuk-card__content">
+            <h1 class="nhsuk-card__title nhsuk-u-margin-bottom-4">Further information required for {{data.applicant.firstname}} {{data.applicant.lastname}}</h1>
+            <p class="nhsuk-u-font-size-24">
+              OHS reference number<br />
+              <strong class="nhsuk-u-font-size-32">{{data.applicant.ohsReference}}</strong>
+            </p>            
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="nhsuk-form-group">
+
+          <h2>What happens next</h2>
+          <form action="ohs-case-success.html" method="post">
+            <div class="nhsuk-form-group">
+
+              <p>Additional information has been requested for {{data.applicant.firstname}} {{data.applicant.lastname}}. This will have been sent via email if an email address has been provided.</p>
+              <p>This will have been sent by post if an email address was not available.</p>
+              <p>The information required will be:</p>
+
+              <ul>
+                <li>Evidence of the first day they received the UK State Pension payment</li>
+              </ul>
+              
+              <p><a href="ohs-case-details-view-with-S072#entitlements">View updated details</a></p>
+
+              <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="button">
+                Do another search
+              </button>
+            </div>
+        </form>
+
+      </form>
+      
+    
+    </div>
+  </div>
+
+{% endblock %}

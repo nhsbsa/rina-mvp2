@@ -1,0 +1,145 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Case view</h1>
+
+
+      <div>
+          <dl class="nhsuk-summary-list">
+            <h2 class="nhsuk-heading-l">Case details</h2>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Joe Bloggs
+              </dd>
+  
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Reference number
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                QQ123456C
+              </dd>     
+  
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                1 January 1990
+              </dd>        
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                National Insurance number
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                JA 1234424C
+              </dd>
+  
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                11 Lestock Close<br>Rugby<br> CV22 7HR<br> United Kingdom
+              </dd>
+  
+           </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Last updated
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              28 November 2023
+            </dd>
+          </div>
+        </dl>     
+
+          <form action="so45-send" method="post">
+
+            <div class="nhsuk-form-group">
+              <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-8" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+                Archive case
+              </button>
+            </div>
+          </form>
+
+      
+        </div>
+      
+          <div class="nhsuk-timeline">
+            <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-6">Timeline</h2>
+            <ol class="nhsuk-timeline__events">
+            <li class="nhsuk-timeline__events--entry">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">SO44: Request for an entitlement document</h2>
+                <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">15 November 2023</p>
+                <p class="nhsuk-body-m nhsuk-u-margin-bottom-1" for="so44-tbc"><span class="prefix">Country:</span>Norway</p>
+                <p class="nhsuk-body-m nhsuk-u-margin-bottom-3" for="so44-tbc"><span class="prefix">Status:</span>Received</p>
+                <ul class="nhsuk-list nhsuk-body-s">
+                  <li><a href="#">Open form</a></li>
+                  <li><a href="#">Comment</a></li>
+                  <li><a href="#">Add attachment</a></li>
+                </ul>
+            </li>
+            <li class="nhsuk-timeline__events--entry">
+                <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">SO45: Entitlement document - temporary stay</h2>
+                <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">17 November 2023</p>
+                <p class="nhsuk-body-m nhsuk-u-margin-bottom-1" for="so44-tbc"><span class="prefix">Country:</span>United Kingdom</p>
+                <p class="nhsuk-body-m nhsuk-u-margin-bottom-3" for="so44-tbc"><span class="prefix">Status:</span>Sent</p>
+                <ul class="nhsuk-list nhsuk-body-s">
+                  <li><a href="#">Open form</a></li>
+                  <li><a href="#">Comment</a></li>
+                  <li><a href="#">Add attachment</a></li>
+              </ul>
+            </li>
+            </ol>
+            </div> 
+      
+      </div>
+
+    </div>
+    
+
+{% endblock %}

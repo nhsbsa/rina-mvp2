@@ -1,0 +1,134 @@
+<!-- Use this layout template for legacy OHS pages -->
+
+<!-- 
+  This is the main layout where you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Extends the layout from /docs/views/template.html -->
+{% extends "template.html" %}
+
+
+<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% block headCSS %}
+  <link href="/css/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  OHS RINA - Design Guidance
+{% endblock %}
+
+<!-- Edit the header -->
+<!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+  {{ header({
+    "transactionalService": {
+        "name": "OHS RINA - Design Guidance",
+        "href": "/guidance"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+
+   <!-- Add content to the right of the banner -->
+  
+{% endblock %}
+
+{% block content %}
+
+<div class="app-pane">
+  
+  <div class="app-pane__side-bar">
+    {% block nav %}
+    <nav class="app-side-nav">
+  
+      <h2 class="app-side-nav__heading">Design principles</h2>
+      <ul class="nhsuk-list app-side-nav__list">
+      
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/automation-principles">Automation</a></li>
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/content-guidance">Content</a></li>
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/routing-principles">Routing</a></li>
+      
+      </ul>
+  
+      <h2 class="app-side-nav__heading">Components</h2>
+      <ul class="nhsuk-list app-side-nav__list">
+      
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/input-field">Text input</a></li>
+      
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/radios">Radios</a></li>
+      
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/checkbox">Checkboxes</a></li>
+
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/date-input">Date input</a></li>
+
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/textarea">Textarea</a></li>
+
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/autocomplete-textbox">Autocomplete textbox</a></li>
+
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/autoselect-dropdown">Autoselect dropdown</a></li>
+
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/components/multiselect-dropdown">Multiselect dropdown</a></li>
+              
+      </ul>
+    
+      <h2 class="app-side-nav__heading">Examples</h2>
+      <ul class="nhsuk-list app-side-nav__list">
+      
+        <li class="app-side-nav__item"><a class="app-side-nav__link" href="/guidance/example-s044/s044-splash">Example S044</a></li>
+
+  </nav>
+    {% endblock %}
+  </div>
+
+  <div class="app-pane__main-content">
+    {% block maincontent %}
+      This is the main content
+    {% endblock %}
+  </div>
+    
+
+{% endblock %}
+
+<!-- Edit the footer -->
+<!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
+{% block footer %}
+    {{ footer({
+        "links": [
+        {
+            "URL": "#",
+            "label": "Accessibility statement"
+        },
+        {
+            "URL": "#",
+            "label": "Cookies"
+        },
+        {
+            "URL": "#",
+            "label": "Privacy policy"
+        },
+        {
+            "URL": "#",
+            "label": "Terms and conditions"
+        },
+        {
+            "URL": "#",
+            "label": "Index"
+        }
+        ]
+    }) }}
+{% endblock %}
+
+
+
+{% block bodyEnd %}
+  {% block scripts %}
+    <!-- Custom JavaScript files can be added to this file -->
+    {% include "includes/scripts.html" %}
+    <!-- For adding page specific JavsScript -->
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+{% endblock %}

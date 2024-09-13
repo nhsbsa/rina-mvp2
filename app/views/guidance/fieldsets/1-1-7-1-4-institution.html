@@ -1,0 +1,27 @@
+{% call fieldset({
+    legend: {
+      "text": "Institution",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+  }) %}
+  
+  {{ input({
+    "label": {
+      "text": "Institution ID"
+    },
+    id: "Institution ID",
+    name: "Institution ID",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Institution name"
+    },
+    id: "Institution name",
+    name: "Institution name",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {% endcall %}

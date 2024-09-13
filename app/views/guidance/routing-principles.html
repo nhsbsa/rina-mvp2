@@ -1,0 +1,59 @@
+app/views/guidance/content-guidance.html{% extends 'layout-guidance.html' %}
+
+{% block maincontent %}
+
+<!-- This is the page heading -->
+<h1 class="app-page-heading">
+    <span class="nhsuk-caption-l">
+        Principles
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    </span>
+    Routing
+    <div>
+    </div>
+  </h1>
+
+  <p class="nhsuk-lede-text app-lede-text">Routing is important to <a href=https://service-manual.nhs.uk/standards-and-technology/service-standard-points/4-make-the-service-simple-to-use">making the service simple 
+    to use</a> and improving accessibility by reducing mental fatigue.</p>
+
+  <p class="nhsuk-lede-text app-lede-text">There are a number of redundant options in the existing SEDs which could be removed by using routing options.</p>
+
+  <p>The NHS service standard advises <a href=https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users">using filter questions to route users</a>
+     to answer only the questions that apply to them. These are not explicit in the current SEDs.</p>
+  <p>User research tells us that users rely on knowing what sections are required under different circumstances. 
+     We should look for opportunities to route users to the appropriate sections where possible.
+  </p>
+  
+  <h2>What should we do?</h2>
+
+  <h3>Do not show redundant sections</h3>
+
+  <p>We should only show SED sections that need to be checked or completed by the user, including where a section may or may not be required based on a previous answer.</p>
+
+  <h4>Examples</h4>
+
+  <h5>S072: 5. INFORMATION ON ENTITLEMENT / 6. INFORMATION ON NO ENTITLEMENT </h5>
+
+  <p>On an S072, for example, users know to only fill in section 5 or section 6 depending on whether the entitlement was issued or rejected.</p>
+  <p>We should use entitlement/no entitlement as a filter question routing users to the appropriate section only.</p>
+  
+  <p><strong class="nhsuk-tag nhsuk-tag--grey">NOTE</strong> This may be achievable via automation directly from OHS, without the user having to manually indicate which decision was made. </p>
+
+  <h5>S071: 4. IF YOU CHOOSE "A FAMILY MEMBER", PLEASE FILL IN SECTION INSURED PERSON</h5>
+
+  <p>Use status of the person as a filter question - only proceed to section 4 if "A family member" is selected, otherwise proceed to section 5..</p>
+
+  <h3>Do not show redundant fieldsets</h3>
+
+  <p>There are certain sub-section headings, for example, <strong>IF PIN NOT PROVIDED FOR EVERY INSTITUTION, PLEASE PROVIDE</strong> that indicate 
+    they are only required based on a previous answer. If possible we should only show this fieldset if the described criteria is met by the previous answer.  
+  </p>
+
+  <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+  
+  <p>The above list is not exhaustive and we acknowledge that it will need assessing for technical feasibility.</p>
+    
+  <p><a href src="automation-principles">Automation</a> may also play a role in routing and eliminating redundant entry.</p>
+
+
+{% endblock %}

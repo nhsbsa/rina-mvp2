@@ -1,0 +1,1089 @@
+// Import NHS.UK frontend library
+@import 'node_modules/nhsuk-frontend/packages/nhsuk';
+
+// Components that are not in the NHS.UK frontend library
+@import 'components/list-border';
+@import 'components/related-nav';
+@import 'components/side-nav';
+@import 'components/pane';
+@import 'component-override/details-override';
+@import 'components/timeline';
+@import 'components/sub-header';
+
+
+///////////////////////////////////////////
+// Add your custom CSS/Sass styles below...
+///////////////////////////////////////////
+
+span.prefix {
+	display: inline-block;
+	margin-right: 8px;
+	color: $color_nhsuk-black;
+	font-weight: bold;
+}
+
+h2>span.prefix {
+	margin-right: 20px;
+}
+
+
+// Styling for notification banner taken from gds
+.nhsuk-notification-banner {
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.25;
+	margin-bottom: 30px;
+	border: 5px solid $color_nhsuk-blue;
+	background-color: $color_nhsuk-blue;
+}
+
+.nhsuk-notification-banner__header {
+	padding: 2px 15px 5px;
+	border-bottom: 1px solid $color_nhsuk-black;
+}
+
+.nhsuk-notification-banner__title {
+	font-size: 1rem;
+	line-height: 1.25;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	color: $color_nhsuk-white;
+}
+
+.nhsuk-notification-banner__content {
+	color: $color_nhsuk-black;
+	padding: 15px;
+	background-color: $color_nhsuk-white;
+}
+
+.nhsuk-notification-banner__heading {
+	font-size: 1.125rem;
+	line-height: 1.1111111111;
+	font-weight: 700;
+	margin: 0 0 15px;
+	padding: 0;
+}
+
+.nhsuk-notification-banner__content>:last-child {
+	margin-bottom: 0;
+}
+
+// Style changes to override NHS prototype kit to match look and feel of legacy OHS system when prototyping  
+body.ohs {
+	background-color: $color_nhsuk-white;
+}
+
+body.ohs>header {
+	border-bottom: 1px solid $color_nhsuk-grey-4;
+	background-color: $color_nhsuk-white;
+}
+
+body.ohs .nhsuk-button--secondary {
+	background-color: $color_nhsuk-blue;
+}
+
+// Style changes to override NHS prototype kit to match look and feel of legacy OHS system when prototyping  
+body.ohs {
+	background-color: $color_nhsuk-white;
+}
+
+body.ohs>header {
+	border-bottom: 1px solid $color_nhsuk-grey-4;
+	background-color: $color_nhsuk-white;
+}
+
+body.ohs .nhsuk-button--secondary {
+	background-color: $color_nhsuk-blue;
+}
+
+/* ==========================================================================
+ LEFT NAV
+========================================================================== */
+/* ==========================================================================
+     SECONDARY NAV
+    ========================================================================== */
+.nhsuk-secondary-navigation {
+	background-color: #ffffff;
+	padding-bottom: 12px;
+}
+
+.nhsuk-secondary-navigation__container {
+	text-align: justify;
+	margin: 0 30px;
+}
+
+.nhsuk-secondary-navigation__nav {
+	text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nhsuk-secondary-navigation__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nhsuk-secondary-navigation__item {
+	font-weight: 400;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.5;
+	display: inline-block;
+	margin-right: 24px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+@media (min-width: 40.0625em) {
+	.nhsuk-secondary-navigation__item {
+		font-size: 19px;
+		font-size: 1.1875rem;
+		line-height: 1.47368;
+	}
+}
+
+@media print {
+	.nhsuk-secondary-navigation__item {
+		font-size: 14pt;
+		line-height: 1.15;
+	}
+}
+
+.nhsuk-secondary-navigation__item:last-child {
+	margin-right: 0;
+}
+
+.nhsuk-secondary-navigation__link {
+	display: block;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.nhsuk-secondary-navigation__link:link,
+.nhsuk-secondary-navigation__link:visited {
+	color: #005eb8;
+}
+
+.nhsuk-secondary-navigation__link:focus {
+	color: black;
+	position: relative;
+	z-index: 1;
+	box-shadow: none;
+}
+
+.nhsuk-secondary-navigation__link[aria-current] {
+	color: #005eb8;
+	position: relative;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.nhsuk-secondary-navigation__link[aria-current]:before {
+	background-color: #005eb8;
+	content: "";
+	display: block;
+	height: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+.nhsuk-secondary-navigation__link[aria-current]:focus {
+	color: black;
+	position: relative;
+	border: none;
+}
+
+.nhsuk-secondary-navigation__link[aria-current]:focus:before {
+	background-color: black;
+}
+
+
+/* ==========================================================================
+   LEFT NAV
+  ========================================================================== */
+
+.nhsBSA-sidebar-container {
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - 99px);
+	margin: 0;
+	padding: 0;
+
+	@media (min-width: 48.0525em) {
+		min-height: calc(100vh - 80px);
+	}
+
+	.nhsBSA-sidebar-wrapper {
+		flex: 1 0 auto;
+		display: flex;
+
+		@media (max-width: 48.0525em) {
+			flex-direction: column;
+		}
+
+		.nhsBSA-sidebar-content {
+			flex: 1;
+			background-color: #f0f4f5;
+			padding: 0px;
+			margin: 0px;
+		}
+
+		.nhsuk-header__navigation {
+			width: 300px;
+			order: -1;
+			background-color: #d8dde0;
+			margin: 0;
+
+			@media (max-width: 48.0525em) {
+				background-color: white;
+				width: 100%;
+			}
+
+			ul {
+				display: block;
+				list-style-type: none;
+				margin: 0;
+				padding: 0px;
+
+				li {
+					margin: 0px;
+					text-align: left;
+					border-top: 1px solid #ccc;
+
+					&:last-of-type {
+						border-bottom: 1px solid #ccc;
+					}
+
+					@media (max-width: 48.0525em) {
+						border-top: 1px solid #f0f4f5;
+
+						&:last-of-type {
+							border-bottom: 1px solid #f0f4f5;
+						}
+					}
+
+					a {
+						display: block;
+						color: #005EB8;
+						font-size: 18px;
+						text-decoration: none;
+						padding: 16px;
+
+						@media (min-width: 61.875em) {
+							padding: 16px 16px 16px 32px;
+						}
+
+						&.active {
+							background-color: #005EB8;
+							color: white;
+							font-weight: 600;
+							border-top: #005EB8 1px solid;
+						}
+
+						&:hover {
+							&:not(.active) {
+								background-color: #005EB8;
+								color: white;
+							}
+						}
+					}
+				}
+			}
+
+			.logged-in {
+				display: none;
+				padding: 16px;
+				margin: 0;
+
+				@media (max-width: 61.875em) {
+					display: block;
+				}
+
+				@media (max-width: 48.0525em) {
+					text-align: center;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 61.875em) {
+	.nhsBSA-sidebar-nav {
+		display: none;
+	}
+}
+
+.side-nav h1 {
+	padding: 16px;
+	margin: 0;
+}
+
+@media (min-width: 48.0525em) {
+	.side-nav h1 {
+		padding: 32px;
+	}
+}
+
+
+
+@media (min-width: 48.0525em) {
+	.side-nav li a {
+		padding: 16px 32px;
+	}
+}
+
+.side-nav .action-buttons {
+	padding: 16px;
+}
+
+@media (min-width: 48.0525em) {
+	.side-nav .action-buttons {
+		padding: 32px;
+	}
+}
+
+/* ==========================================================================
+   GENERIC STYLES
+  ========================================================================== */
+
+.confirmation-box {
+	background-color: $color_nhsuk-blue;
+	text-align: center;
+	color: white;
+	padding: 20px;
+	margin: 30px 0;
+}
+
+.rejection-box {
+	background-color: $color_nhsuk-grey-2;
+	text-align: center;
+	color: white;
+	padding: 20px;
+	margin: 30px 0;
+}
+
+header {
+	.logged-in {
+		margin: 0;
+		color: white;
+		font-size: 19px;
+		text-align: right;
+
+		@media (max-width: 61.875em) {
+			display: none;
+		}
+
+		a {
+			color: white;
+		}
+	}
+}
+
+.additional-content {
+	position: absolute;
+	top: 15px;
+	right: 12px;
+	padding: 10px;
+	/* Adjust padding as needed */
+	color: #fff;
+	/* Set the text color */
+	/* Add more styles as needed */
+
+}
+
+.nhsbsa-border-left {
+	border-left: 1px solid black;
+}
+
+
+
+
+
+// NHS App side nav Pelin code
+.nhsuk-header__right-nav {
+	@media(max-width: 990px) {
+		display: none;
+
+	}
+
+	float: right;
+	margin-top: 8px;
+
+	a {
+		color: #ffffff;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&:visited {
+			color: #ffffff;
+		}
+	}
+
+	strong {
+		color: #ffffff;
+	}
+}
+
+
+
+
+/* ==========================================================================
+   TABS
+  ========================================================================== */
+
+.govuk-tabs {
+	margin-top: 5px;
+	margin-bottom: 20px
+}
+
+@media (min-width: 40.0625em) {
+	.govuk-tabs {
+		margin-bottom: 30px
+	}
+}
+
+.govuk-tabs__title {
+	// font-family: "GDS Transport", arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 400;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.25;
+	color: #0b0c0c;
+	margin-bottom: 10px
+}
+
+@media print {
+	.govuk-tabs__title {
+		font-family: sans-serif
+	}
+}
+
+@media (min-width: 40.0625em) {
+	.govuk-tabs__title {
+		font-size: 19px;
+		font-size: 1.1875rem;
+		line-height: 1.3157894737
+	}
+}
+
+@media print {
+	.govuk-tabs__title {
+		font-size: 14pt;
+		line-height: 1.15
+	}
+}
+
+@media print {
+	.govuk-tabs__title {
+		color: #000
+	}
+}
+
+.govuk-tabs__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-bottom: 20px
+}
+
+@media (min-width: 40.0625em) {
+	.govuk-tabs__list {
+		margin-bottom: 30px
+	}
+}
+
+.govuk-tabs__list-item {
+	// font-family: "GDS Transport", arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 400;
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.25;
+	margin-left: 25px
+}
+
+@media print {
+	.govuk-tabs__list-item {
+		font-family: sans-serif
+	}
+}
+
+@media (min-width: 40.0625em) {
+	.govuk-tabs__list-item {
+		font-size: 19px;
+		font-size: 1.1875rem;
+		line-height: 1.3157894737
+	}
+}
+
+@media print {
+	.govuk-tabs__list-item {
+		font-size: 14pt;
+		line-height: 1.15
+	}
+}
+
+.govuk-tabs__list-item:before {
+	color: #0b0c0c;
+	content: "—";
+	margin-left: -25px;
+	padding-right: 5px
+}
+
+@media print {
+	.govuk-tabs__list-item:before {
+		color: #000
+	}
+}
+
+.govuk-tabs__tab {
+	// font-family: "GDS Transport", arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: underline;
+	text-decoration-thickness: max(1px, .0625rem);
+	text-underline-offset: .1578em;
+	display: inline-block;
+	margin-bottom: 10px
+}
+
+@media print {
+	.govuk-tabs__tab {
+		font-family: sans-serif
+	}
+}
+
+.govuk-tabs__tab:hover {
+	text-decoration-thickness: max(3px, .1875rem, .12em);
+	-webkit-text-decoration-skip-ink: none;
+	text-decoration-skip-ink: none;
+	-webkit-text-decoration-skip: none;
+	text-decoration-skip: none
+}
+
+.govuk-tabs__tab:focus {
+	outline: 3px solid rgba(0, 0, 0, 0);
+	color: #0b0c0c;
+	background-color: #fd0;
+	box-shadow: 0 -2px #fd0, 0 4px #0b0c0c;
+	text-decoration: none;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone
+}
+
+.govuk-tabs__tab:link {
+	color: #1d70b8
+}
+
+.govuk-tabs__tab:visited {
+	color: #4c2c92
+}
+
+.govuk-tabs__tab:hover {
+	color: #003078
+}
+
+.govuk-tabs__tab:active {
+	color: #0b0c0c
+}
+
+.govuk-tabs__tab:focus {
+	color: #0b0c0c
+}
+
+.govuk-tabs__panel {
+	margin-bottom: 30px
+}
+
+@media (min-width: 40.0625em) {
+	.govuk-tabs__panel {
+		margin-bottom: 50px
+	}
+}
+
+@media (min-width: 40.0625em) {
+	.js-enabled .govuk-tabs__list {
+		margin-bottom: 0;
+		border-bottom: 1px solid #b1b4b6
+	}
+
+	.js-enabled .govuk-tabs__list:after {
+		content: "";
+		display: block;
+		clear: both
+	}
+
+	.js-enabled .govuk-tabs__title {
+		display: none
+	}
+
+	.js-enabled .govuk-tabs__list-item {
+		position: relative;
+		margin-right: 5px;
+		margin-bottom: 0;
+		margin-left: 0;
+		padding: 10px 20px;
+		float: left;
+		background-color: #f3f2f1;
+		text-align: center
+	}
+
+	.js-enabled .govuk-tabs__list-item:before {
+		content: none
+	}
+
+	.js-enabled .govuk-tabs__list-item--selected {
+		position: relative;
+		margin-top: -5px;
+		margin-bottom: -1px;
+		padding-top: 14px;
+		padding-right: 19px;
+		padding-bottom: 16px;
+		padding-left: 19px;
+		border: 1px solid #b1b4b6;
+		border-bottom: 0;
+		background-color: #fff
+	}
+
+	.js-enabled .govuk-tabs__list-item--selected .govuk-tabs__tab {
+		text-decoration: none
+	}
+
+	.js-enabled .govuk-tabs__tab {
+		margin-bottom: 0
+	}
+
+	.js-enabled .govuk-tabs__tab:link,
+	.js-enabled .govuk-tabs__tab:visited {
+		color: #0b0c0c
+	}
+}
+
+@media print and (min-width: 40.0625em) {
+
+	.js-enabled .govuk-tabs__tab:link,
+	.js-enabled .govuk-tabs__tab:visited {
+		color: #000
+	}
+}
+
+@media (min-width: 40.0625em) {
+	.js-enabled .govuk-tabs__tab:hover {
+		color: rgba(11, 12, 12, .99)
+	}
+
+	.js-enabled .govuk-tabs__tab:active,
+	.js-enabled .govuk-tabs__tab:focus {
+		color: #0b0c0c
+	}
+}
+
+@media print and (min-width: 40.0625em) {
+
+	.js-enabled .govuk-tabs__tab:active,
+	.js-enabled .govuk-tabs__tab:focus {
+		color: #000
+	}
+}
+
+@media (min-width: 40.0625em) {
+	.js-enabled .govuk-tabs__tab:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0
+	}
+
+	.js-enabled .govuk-tabs__panel {
+		margin-bottom: 0;
+		padding: 30px 20px;
+		border: 1px solid #b1b4b6;
+		border-top: 0
+	}
+
+	.js-enabled .govuk-tabs__panel> :last-child {
+		margin-bottom: 0
+	}
+
+	.js-enabled .govuk-tabs__panel--hidden {
+		display: none
+	}
+}
+
+
+/* Modal container */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding: 0em;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal content */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto;
+	padding: 2em;
+	border: 1px solid #888;
+	width: 50%;
+}
+
+/* Close button */
+.close {
+	color: #aaa;
+	float: right;
+}
+
+.close:hover,
+.close:focus {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: 005eb8;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	font-size: 19px;
+}
+
+.pagination a.active {
+	background-color: #005eb8;
+	color: white;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+
+.highlight {
+	font-weight: bold;
+}
+
+.micro-button {
+	width: 100%;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 20px;
+	background-color: #ffffff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	border: 1px solid #d8dde0;
+}
+
+.micro-button img {
+	max-width: 100px;
+	max-height: 40px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+.micro-button:hover {
+	background-color: #d8dde0;
+	border: 1px solid #cdcece;
+
+}
+
+.micro-container {
+	margin: 0;
+	padding: 0;
+}
+
+.hidden-row {
+	display: none;
+	/* Initially hide the additional row */
+}
+
+.table-hidden {
+	display: none;
+}
+
+.table-content {
+	display: flex;
+	align-items: top;
+}
+
+.table-clickable {
+	background-color: #ffffff;
+	cursor: pointer;
+	padding-top: 20px;
+	transition: background-color 0.2s;
+	color: inherit;
+	text-decoration: none;
+}
+
+.table-clickable:hover {
+	background-color: #F0F4F5;
+}
+
+.table-unclickable {
+	cursor: pointer;
+}
+
+.table-unclickable2 {
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.width-130 {
+	width: 130px;
+}
+
+.width-120 {
+	width: 120px;
+}
+
+.width-200 {
+	width: 200px;
+}
+
+.width-600 {
+	width: 650px;
+}
+
+.width-90 {
+	width: 90px;
+}
+
+.dropdown-checkbox {
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	max-height: 200px;
+	overflow-y: auto;
+	border: 1px solid #ccc;
+	padding: 5px;
+	z-index: 1;
+}
+
+.dropdown-content label {
+	display: block;
+}
+
+.dropdown-content input[type="checkbox"] {
+	margin-right: 5px;
+}
+
+.dropdown-content input[type="checkbox"]:last-child {
+	margin-bottom: 0;
+}
+
+.dropdown-content input[type="checkbox"]:first-child {
+	margin-top: 0;
+}
+
+.dropdown-content input[type="checkbox"]:not(:last-child) {
+	margin-bottom: 5px;
+}
+
+.dropdown-content input[type="checkbox"]:checked+label {
+	font-weight: bold;
+}
+
+.dropbtn {
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	color: #333;
+	padding: 10px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+//Styling for autocomplete
+
+.autocomplete__wrapper {
+	position: relative;
+	max-width: 25em;
+	margin-bottom: 20px;
+	font-family: "GDS Transport", Arial, sans-serif;
+}
+
+@media (min-width: 40.0625em) {
+	.autocomplete__wrapper {
+		margin-bottom: 30px;
+	}
+}
+
+.autocomplete__hint,
+.autocomplete__input {
+	border: 2px solid #0b0c0c;
+	border-radius: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-bottom: 2px;
+	width: 100%;
+}
+
+.autocomplete__input {
+	background-color: transparent;
+	position: relative;
+}
+
+.autocomplete__hint {
+	color: #b1b4b6;
+	position: absolute;
+}
+
+.autocomplete__input--default {
+	padding: 6px 5px 5px;
+	background-color: #ffffff;
+	border: 2px solid #4c6272;
+}
+
+.autocomplete__input--focused {
+	outline: 3px solid #fd0;
+	outline-offset: 0;
+	box-shadow: inset 0 0 0 2px;
+}
+
+.autocomplete__input--show-all-values {
+	padding: 5px 34px 5px 5px;
+	cursor: pointer;
+}
+
+.autocomplete__dropdown-arrow-down {
+	z-index: -1;
+	display: inline-block;
+	position: absolute;
+	right: 8px;
+	width: 24px;
+	height: 24px;
+	top: 10px;
+}
+
+.autocomplete__menu {
+	background-color: #fff;
+	border: 2px solid #0b0c0c;
+	border-top: 0;
+	color: #0b0c0c;
+	margin: 0;
+	max-height: 342px;
+	overflow-x: hidden;
+	padding: 0;
+	width: 100%;
+	width: calc(100% - 4px);
+}
+
+.autocomplete__menu--visible {
+	display: block;
+}
+
+.autocomplete__menu--hidden {
+	display: none;
+}
+
+.autocomplete__menu--overlay {
+	box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
+	left: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 100;
+}
+
+.autocomplete__menu--inline {
+	position: relative;
+}
+
+.autocomplete__option {
+	border-bottom: solid #b1b4b6;
+	border-width: 1px 0;
+	cursor: pointer;
+	display: block;
+	position: relative;
+}
+
+.autocomplete__option>* {
+	pointer-events: none;
+}
+
+.autocomplete__option:first-of-type {
+	border-top-width: 0;
+}
+
+.autocomplete__option:last-of-type {
+	border-bottom-width: 0;
+}
+
+.autocomplete__option--odd {
+	background-color: #fafafa;
+}
+
+.autocomplete__option--focused,
+.autocomplete__option:hover {
+	background-color: #1d70b8;
+	border-color: #1d70b8;
+	color: #fff;
+	outline: 0;
+}
+
+.autocomplete__option--no-results {
+	background-color: #ffffff;
+	color: #ffffff;
+	cursor: not-allowed;
+}
+
+.autocomplete__hint,
+.autocomplete__input,
+.autocomplete__option {
+	font-size: 16px;
+	line-height: 1.25;
+}
+
+.autocomplete__hint,
+.autocomplete__option {
+	padding: 5px;
+}
+
+@media (min-width: 641px) {
+
+	.autocomplete__hint,
+	.autocomplete__input,
+	.autocomplete__option {
+		font-size: 19px;
+		line-height: 1.31579;
+	}
+}
+
+// helper class to captilise words
+.capitalize {
+	text-transform: capitalize;
+}

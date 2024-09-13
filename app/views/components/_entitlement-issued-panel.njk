@@ -1,0 +1,25 @@
+{% macro panel(entitlementType, applicant) %}
+
+    {% if entitlementType == "rejected" %}
+      <div class="nhsuk-card rejection-box nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+    {% else %}
+      <div class="nhsuk-card confirmation-box nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+    {% endif %}
+
+        <div class="nhsuk-card__content">
+
+          <h1 class="nhsuk-card__title nhsuk-u-margin-bottom-4">
+            {{entitlementType}} entitlement issued for {{applicant.firstname}} {{applicant.lastname}}
+          </h1>
+
+          <p class="nhsuk-u-font-size-24">
+            OHS reference number
+            <br>
+            <strong class="nhsuk-u-font-size-32">{{applicant.ohsReference}}</strong>
+          </p>
+          
+        </div>
+
+      </div>
+
+{% endmacro %}

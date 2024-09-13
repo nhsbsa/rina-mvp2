@@ -1,0 +1,197 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- LEGACY OHS SCREEN: Extends the layout from /views/layout-ohs.html -->
+{% extends 'layout-ohs.html' %}
+
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set monthNames = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %}
+      {% set dayNames = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'] %}
+
+
+      <h1>
+        Review applicant details
+      </h1>
+      
+      <form action="ohs-case-check-answers" method="post">
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Personal details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">OHS Reference number</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.ohsReference}}</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Full name</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.firstname}} {{data.applicant.lastname}}</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.dob}}</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">National Insurance number</dt>
+              <dd class="nhsuk-summary-list__value">
+                {% if data.applicant.NINO_OHS %} 
+                {{data.applicant.NINO_OHS}}
+              {% else %}
+                {{data.applicant.NINO}}
+              {% endif %}
+              </dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+          </dl>
+
+        </div>
+        
+
+        
+        <div class="nhsuk-form-group">
+
+          <h2>Eligibility details</h2>
+
+          <dl class="nhsuk-summary-list">
+
+          {% set questions =  [{
+              question: "What entitlement would you like to create?",
+              default: "S1 for exportable benefit holder including State Pension"
+            },
+            {
+              question: "What is the source of entitlement type?",
+              default: "Customer"
+            },
+            {
+              question: "What country are you moving to?",
+              default: data.applicant.address.country
+            },
+            {
+              question: "What date will you start to live in " + data.applicant.address.country +"?",
+              default: data.applicant.startdate
+            },
+            {
+              question: "What date will you returning to the UK?"
+            },
+            {
+              question: "Do you get money from any of these?",
+              default: "State Pension"
+            },
+            {
+              question: "Do you get money from a UK State Pension, or will you get this within the next 20 days?",
+              default: "Yes"
+            },
+            {
+              question: "Do you get paid a state pension in " + data.applicant.address.country +"?",
+              default: "No"
+            },
+            {
+              question: "Do you get paid a State Pension from another EEA country, or Switzerland?",
+              default: "No"
+            }]
+
+          %}
+
+          {% for question in questions %}
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">{{question.question}}</dt>
+              <dd class="nhsuk-summary-list__value"><p>{{question.default}}</p></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+              </dd>
+            </div>
+
+          {% endfor %}
+     
+          
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Contact details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Home address</dt>
+              <dd class="nhsuk-summary-list__value">{{address(data.applicant.address)}}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Correspondence address</dt>
+              <dd class="nhsuk-summary-list__value">{{address(data.applicant.address)}}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Email address</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Phone</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+              </dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+        <h2>Now send and create entitlement</h2>
+        <p>By accepting these details, you are confirming they are correct to the best of your knowledge</p>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Accept and submit
+          </button>
+          <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Cancel
+          </button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

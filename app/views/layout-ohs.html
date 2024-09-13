@@ -1,0 +1,88 @@
+<!-- Use this layout template for legacy OHS pages -->
+
+<!-- 
+  This is the main layout where you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+<!--Import address renderer from common-components file-->
+{% from 'common-components.html' import address %}
+
+
+<!-- Extends the layout from /docs/views/template.html -->
+{% extends "template.html" %}
+
+<!-- Adds a class to ohs pages to enable style overrides to match legacy application -->
+{% set bodyClasses = "ohs" %}
+
+<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% block headCSS %}
+  <link href="/css/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Overseas Healthcare Services
+{% endblock %}
+
+<!-- Edit the header -->
+<!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false",
+      "classes": "nhsuk-header--white"
+    })
+  }}
+
+   <!-- Add content to the right of the banner -->
+   <div class="additional-content">
+    <p class="nhsuk-u-font-size-18" style="color: black;">Signed in as Caroline Langley | <a href="#">Sign out</a></p5>
+    <!-- Add more content as needed -->
+  </div>
+  
+{% endblock %}
+
+<!-- Edit the footer -->
+<!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
+{% block footer %}
+    {{ footer({
+        "links": [
+        {
+            "URL": "#",
+            "label": "Accessibility statement"
+        },
+        {
+            "URL": "#",
+            "label": "Cookies"
+        },
+        {
+            "URL": "#",
+            "label": "Privacy policy"
+        },
+        {
+            "URL": "#",
+            "label": "Terms and conditions"
+        },
+        {
+            "URL": "#",
+            "label": "Index"
+        }
+        ]
+    }) }}
+{% endblock %}
+
+
+
+{% block bodyEnd %}
+  {% block scripts %}
+    <!-- Custom JavaScript files can be added to this file -->
+    {% include "includes/scripts.html" %}
+    <!-- For adding page specific JavsScript -->
+    {% block pageScripts %}{% endblock %}
+  {% endblock %}
+{% endblock %}

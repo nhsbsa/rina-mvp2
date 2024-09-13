@@ -1,0 +1,51 @@
+{% call fieldset({
+    legend: {
+      "text": "Personal identification number(s)",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+  }) %}
+
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="country">
+      Country
+    </label>
+        <div id="search-country"></div>
+  </div>
+
+<script>
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#search-country'),
+    id: 'country',
+    name: 'country-autocomplete',
+    source: countries,
+    defaultValue: '{{ data["country-autocomplete"] }}',
+    displayMenu: 'overlay',
+    minLength: 2,
+    tNoResults: function() {
+      return "Other"
+    }
+  });
+</script>
+
+
+  {{ input({
+    "label": {
+      "text": "Personal identification number (PIN)"
+    },
+    id: "Personal identification number (PIN)",
+    name: "Personal identification number (PIN)",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Sector (optional)"
+    },
+    id: "Sector",
+    name: "Sector",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {% endcall %}

@@ -1,0 +1,222 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="p2-h001-create-2">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+      <span class="nhsuk-caption-l">H001: Notification/request for information</span>
+      <h1>Requests</h1>
+
+      <form action="p2-h001-create-6" method="post">
+        
+        <div class="nhsuk-form-group">
+
+            <div class="nhsuk-form-group">
+
+                <h2 class="nhsuk-heading-m">Type of address request</h2>
+
+          
+                <div class="nhsuk-hint" id="example-hint">
+                  Select all options that are relevant to you.
+                </div>
+          
+                <div class="nhsuk-checkboxes">
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                       Country of residence
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox" value="phone">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                       Country of stay
+                    </label>
+                  </div>
+          
+                  <div class="nhsuk-checkboxes__item">
+                    <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox" value="text message">
+                    <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3">
+                      Contact address of the person
+                    </label>
+                  </div>
+          
+                </div>
+              </fieldset>
+          
+            </div>
+
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Personal details request</h2>
+              
+              <div class="nhsuk-form-group">
+      
+                  <div class="nhsuk-form-group">
+                    <p class="nhsuk-u-margin-bottom-1">Details of other</p>
+                    <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+                      <option value="1" selected>Please select</option>
+                      <option value="2">Family name(s)</option>
+                      <option value="3">Forenames (s)</option>
+                      <option value="4">Date of birth</option>
+                      <option value="5">Sex</option>
+                      <option value="6">Family name(s) at birth</option>
+                      <option value="7">Forename(s) at birth</option>
+                      <option value="8">Place of birth</option>
+                      <option value="9">Father's family name at birth</option>
+                      <option value="10">Forename of father</option>
+                      <option value="11">Mother's family name at birth</option>
+                      <option value="12">Forename of mother</option>
+                      <option value="13">Previous names</option>
+                      <option value="14">Nationality</option>
+                    </select>        
+                  </div>    
+
+            <hr>
+
+            
+            <h2 class="nhsuk-heading-m">Sector personal identification number (PIN) for receiving institution request</h2>
+
+                  <div class="nhsuk-form-group">
+                    <p class="nhsuk-u-margin-bottom-1">Sector PIN for receiving institution</p>
+                    <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+                      <option value="1" selected>Please select</option>
+                      <option value="2">All</option>
+                      <option value="3">Sickness in cash</option>
+                      <option value="4">Sickness in kind</option>
+                      <option value="5">Pension</option>
+                      <option value="6">Unemployment</option>
+                      <option value="7">Occupational disease and accident at work, benefits in cash</option>
+                      <option value="8">Occupational disease and accident at work, benefits in kind</option>
+                      <option value="9">Family benefits</option>
+                      <option value="10">Recovery</option>
+                      <option value="11">Other</option>
+                    </select>        
+                  </div>    
+                  <div class="nhsuk-form-group">
+                    <p class="nhsuk-u-margin-bottom-1">Please enter another sector PIN if you selected 'Other'.</p>
+                    <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+                  </div>
+      
+              </div>    
+
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Information request</h2>
+              
+              <div class="nhsuk-form-group">
+              
+                <form>
+      
+                  <div class="nhsuk-form-group">
+                    <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                
+                      <div class="nhsuk-form-group nhsuk-u-margin-bottom-2">
+                        <p class="nhsuk-u-margin-bottom-1">Date of request</p>
+                      </div>
+            
+                      <div class="nhsuk-date-input" id="so44-tbc">
+            
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-day">Day</label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="so44-tbc-day" name="so44-tbc-day" type="text" pattern="[0-9]*" inputmode="numeric" value="18">
+                          </div>
+                        </div>
+              
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-month">Month</label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="so44-tbc-month" name="so44-tbc-month" type="text" pattern="[0-9]*" inputmode="numeric" value="12">
+                          </div>
+                        </div>
+              
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-year">Year</label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="so44-tbc-year" name="so44-tbc-year" type="text" pattern="[0-9]*" inputmode="numeric" value="2023">
+                          </div>
+                        </div>
+              
+                      </div>
+      
+              </div>    
+      
+              <br>
+                    <div class="nhsuk-form-group nhsuk-u-margin-bottom-2">
+                      <h4>Please provide</h4>
+                      </div>
+                    
+                      <div class="nhsuk-form-group">
+                        <p class="nhsuk-u-margin-bottom-1">Documents</p>
+                        <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
+                      </div>
+      
+                      <div class="nhsuk-form-group">
+                        <p class="nhsuk-u-margin-bottom-1">Information</p>
+                        <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
+                      </div>
+      
+                      <div class="nhsuk-form-group">
+                        <p class="nhsuk-u-margin-bottom-1">SEDs</p>
+                        <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
+                      </div>
+      
+        </div>    
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

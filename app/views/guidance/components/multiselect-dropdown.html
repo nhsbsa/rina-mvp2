@@ -1,0 +1,76 @@
+{% extends 'layout-guidance.html' %}
+
+{% block maincontent %}
+
+<h1 class="app-page-heading">
+    <span class="nhsuk-caption-l">
+        Components
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    </span>
+    Multiselect dropdown <br><strong class="nhsuk-tag nhsuk-tag--yellow">Work in progress</strong>
+    <div>
+    </div>
+</h1>
+
+
+
+<p class="nhsuk-lede-text app-lede-text">There is no multiselect component in the NHS design system or in GOV.UK.</p>
+
+<p>For now, we are recommending using the native html <code>multiple</code> attribute on the NHS design system <a href=https://service-manual.nhs.uk/design-system/components/select>select component</a>
+with a height set to 300px.</p>
+
+<h2>Example</h2>
+
+<div class="nhsuk-form-group">
+  <p class="nhsuk-u-margin-bottom-1">Status of person (optional)</p>
+  <div class="nhsuk-hint" id="contact-hint">
+    Press Command (⌘) to select multiple options.
+  </div>
+  <select class="nhsuk-select nhsuk-u-width-full" id="status" name="status" multiple style="height:300px">
+    <option value="1">Choose status</option>
+    <option value="2" selected>Employed person</option>
+    <option value="3">Self-employed person</option>
+    <option value="4">Frontier worker</option>
+    <option value="5">Former frontier worker</option>
+    <option value="6">Pensioner</option>
+    <option value="7">Pension claimant</option>
+    <option value="8">Unemployed person</option>
+    <option value="9">Family member/dependant</option>
+    <option value="10">Family member of employed person</option>
+    <option value="11">Family member of a pensioner</option>
+    <option value="12">Student</option>
+    <option value="13">Non-active person</option>
+    <option value="14">Other</option>
+  </select>        
+</div>                 
+<p><a href="/guidance/multi-select">View component on an SED</a></p>
+<br>
+<br>
+
+<h3>Error state</h3>
+
+<p><strong class="nhsuk-tag nhsuk-tag--red">TO DO</strong></p>
+
+
+<h2>SED implementation guidance</h2>
+
+<p>This is a new component that is not currently supported as part of the NHS design system.
+
+  We are providing this to support the ongoing development work on dynamic SEDs. 
+</p>
+<p>
+  It has not been tested with users
+  and may change as we learn more about how users will use this component in context.
+</p>
+
+
+<h3>Provide hint text for selecting multiple options</h3>
+
+<p>A limitation of this approach is that it requires users to know to press command on apple or ctrl on windows to select multiple options.
+</p>
+<p>
+  We should provide this information as hint text, indicating the correct key to use based on the user's operating system.
+</p>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'layout-ohs.html' %}
+{% from '../../components/_entitlement-issued-panel.njk' import panel %}
+
+
+<!-- Set up data for S1/S072-->
+{% if data.applicant.incomingSED == "S071" %}
+  
+  {% set entitlementType = "S072" %}
+
+  {% set additionalinformation = 
+    "<p>An electronic copy of the entitlement (S072) has been created and is ready for you to review.</p>
+    <p>A paper copy of the entitlement (S1) has been sent to the applicant.</p>"
+  %}
+
+  {% set whathappensnext = 
+    "<p>You can now review the S072 and send it to the member state.</p>"
+  %}
+
+  <!-- Set up data for PRC/S044-->
+{% elif data.applicant.incomingSED == "S044" %}
+
+  {% set entitlementType = "S045" %}
+
+  {% set additionalinformation = 
+    "<p>An electronic copy of the entitlement (S045) has been created and is ready for you to review.</p>
+    <p>A paper copy of the entitlement (PRC) has been emailed to the applicant and the treatment facility.</p>"
+  %}
+
+  {% set whathappensnext = 
+    "<p>You can now review the S045 and send it to the member state.</p>"
+  %}
+  
+{% endif %}
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    {{ panel(
+      entitlementType,
+      data.applicant
+    ) }}
+
+    <div class="nhsuk-u-margin-bottom-6">
+
+      {{ additionalinformation|safe }}
+
+    <h2>What happens next</h2>
+
+      {{ whathappensnext|safe }}
+
+  </div>
+
+  <form action="confirmation-entitlement-issued" method="post">
+    <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+        Review and send
+    </button>
+  </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
+
+

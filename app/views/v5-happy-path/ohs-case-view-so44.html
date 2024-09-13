@@ -1,0 +1,146 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+<h1>Case details</h1>
+
+    <!-- Case details -->
+    
+    <dl class="nhsuk-summary-list">
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          Ali Roberts
+        </dd>
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          RINA international case ID
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          sxl532ya-bae451po-ssw565sj-fqb573jx
+        </dd>     
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          16 May 1989
+        </dd>        
+      </div>
+    
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          12 Willow Road<br>Sunderland<br>SR5 6UT<br>United Kingdom
+        </dd>
+    
+     </div>
+    
+          
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Treatment start date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      4 December 2023
+    </dd>
+    </div>
+    
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Treatment end date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+    1 January 2024
+    </dd>
+    </div>
+
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    <!-- Timeline -->
+    <div class="nhsuk-tabs__panel">
+    
+      <div class="nhsuk-timeline">
+        <h1 class="nhsuk-heading-m nhsuk-u-margin-bottom-6">Timeline</h1>
+        <ol class="nhsuk-timeline__events">
+          <li class="nhsuk-timeline__events--entry">
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-1">S044: Request for entitlement document</h2>
+            <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">11 December 2023</p>
+            <p class="nhsuk-body-m nhsuk-u-margin-bottom-2" for="so44-tbc"><span class="prefix">Country:</span>Netherlands</p>
+            <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-4">Received</strong>
+            <ul class="nhsuk-list nhsuk-body-s">
+              <li><a href="ohs-so44">Open form</a></li>
+              <li><a href="#">Add attachment</a></li>   
+              <li><a href="ohs-user-search-results">Send to OHS</a></li>  
+              <li><a href="x009">Create H001</a></li>
+            </ul>
+          </li>
+        </div> 
+    </div>
+    
+    
+        <!-- Page actions -->
+        <details class="nhsuk-details nhsuk-expander nhsuk-u-margin-top-6">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Archive or close the case 
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <ul class="nhsuk-list">
+              <li><a href="#">Archive case</a></li>
+              <li><a href="#">Close case</a></li>
+            </ul>
+          </div>
+        </details>
+    
+    
+        
+
+{% endblock %}

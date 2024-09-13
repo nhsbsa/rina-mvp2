@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  Design Guidance 
+{% endblock %}
+
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA - Design Guidance",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full app-component-reading-width">
+
+
+            
+
+          <h1>Example pages</h1>
+
+      
+
+      <p>Use these pages to see examples of the design guidance from the UCD team</p>
+
+      <div>
+        <h2 class="nhsuk-heading-l">Design guidance pages</h2>
+        <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+        <li><a href="/guidance">Design guidance</a></li> 
+        <li><a href="s044-example">S044 example</a></li>
+        <li><a href="h001-checkboxes">Checkboxes</a></li>
+        <li><a href="error-states">Error states</a></li>
+        <li><a href="multi-select">Multi-select component</a></li>
+      </ul>
+
+
+        <h2 class="nhsuk-heading-l">Research findings</h2>
+        <h2 class="nhsuk-heading-m">OHS Entitlement screen</h2>
+        <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+          <li><a href="ohs-case-details-view">OHS entitlements page</a></li>
+        </ul>
+        
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

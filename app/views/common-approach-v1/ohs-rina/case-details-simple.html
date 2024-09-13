@@ -1,0 +1,157 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1 class="app-page-heading">
+        <span class="nhsuk-caption-l"> 
+          {{data.applicant.incomingSEDname}}
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        </span>
+        Case details
+        <div>
+        </div>
+      </h1>  
+
+    <!-- Case details -->
+
+    
+
+    <dl class="nhsuk-summary-list">
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{data.applicant.firstname}} {{data.applicant.lastname}}
+        </dd>
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          RINA international case ID
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{data.applicant.rinaReference}}
+        </dd>     
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{data.applicant.dob}}
+        </dd>        
+      </div>
+    
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{address(data.applicant.address)}}
+        </dd>
+    
+      </div>
+    
+      {% if data.applicant.incomingSED == "S071" %}
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+      National Insurance number
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+          {{data.applicant.NINO}}
+      </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Start date of entitlement
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{data.applicant.startdate}}
+        </dd>
+        </div>
+
+    </div>
+    </div>
+    {% endif %}
+    {% if data.applicant.incomingSED == "S044" %}
+          
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Treatment start date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{data.applicant.startdate}}
+    </dd>
+    </div>
+    
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Treatment end date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{data.applicant.enddate}}
+    </dd>
+    </div>
+
+    </div>
+    </div>
+    {% endif %}
+
+    <form method="post">
+      <!-- First Button -->
+      <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+          Search OHS
+      </button>
+  
+      {% if data.applicant.incomingSED == "S071" %}
+      <!-- Second Button -->
+      <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button--secondary" data-prevent-double-click="true" type="submit" formaction="view-s071">
+          View S071
+      </button>
+      {% endif %}
+  
+      {% if data.applicant.incomingSED == "S044" %}
+      <!-- Third Button -->
+      <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button--secondary" data-prevent-double-click="true" type="submit" formaction="view-s044">
+          View S044
+      </button>
+      {% endif %}
+  </form>
+
+
+   
+
+{% endblock %}

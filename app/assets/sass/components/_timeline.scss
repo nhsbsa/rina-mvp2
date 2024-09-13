@@ -1,0 +1,67 @@
+.nhsuk-timeline__events {
+	border-left: 3px solid $color_nhsuk-blue;
+	list-style-type: none;
+	padding: 0;
+	padding-left: 15px;
+	margin-left: 16px;
+	margin-top: 8px;
+}
+
+.nhsuk-timeline__events--entry {
+	margin: 32px 0;
+	padding-left: 12px;
+	position: relative;
+	top: -12px;
+}
+
+// .nhsuk-timeline__events--entry::before {
+// background-color: #1d70b8;
+// content: '';
+// height: 3px;
+// left: -1px;
+// position: absolute;
+// top: 12px;
+// width: 11px;
+// } 
+
+.nhsuk-timeline__header {}
+
+.nhsuk-timeline__header>.flag {
+	position: absolute;
+	top: 11px;
+	left: -32px;
+	border: 2px solid $color_nhsuk-white;
+	border-radius: 50%;
+	background-size: calc(100% + 2px);
+	background-position: center;
+	height: 32px;
+	width: 32px;
+	outline: 4px solid $color_nhsuk-blue;
+}
+
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.nhsuk-timeline__title {
+	display: inline;
+	font-size: 20px;
+	font-size: 1.5rem;
+
+}
+
+.nhsuk-timeline__byline {
+	display: inline;
+	color: $nhsuk-secondary-text-color;
+	font-size: 20px;
+	font-size: 1.25rem;
+	font-weight: normal;
+}
+
+.nhsuk-timeline__date {
+	font-size: 1rem;
+	line-height: 1.25;
+	margin-bottom: 18px;
+
+}

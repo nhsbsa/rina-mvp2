@@ -1,0 +1,202 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-xl">OHS reference number: 25038029</span>
+        Review applicant details
+      </h1>
+      
+      <form action="ohs-case-check-answers" method="post">
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Personal details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">OHS reference number</dt>
+              <dd class="nhsuk-summary-list__value">230123456</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Full name</dt>
+              <dd class="nhsuk-summary-list__value">Ali Roberts</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">16 May 1989</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">National insurance number</dt>
+              <dd class="nhsuk-summary-list__value">-</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+          </dl>
+
+        </div>
+        
+        <div class="nhsuk-form-group">
+
+          <h2>Eligibility details</h2>
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date request was received</dt>
+              <dd class="nhsuk-summary-list__value"><p>{{ data['case-search-date-day'] }} {{ data['case-search-date-month'] }} {{ data['case-search-date-year'] }}</p></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden"> date request was received</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Type of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['ohs-case-entitlement'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-create">Change<span class="nhsuk-u-visually-hidden"> type of entitlement</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Who requested the PRC</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['ohs-case-entitlement-type'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> who requested the PRC</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">RINA case ID</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-rina-id-number'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-add-rina-number">Change<span class="nhsuk-u-visually-hidden"> RINA case ID</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">PRC start date</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-start-date-day'] }} {{ data['case-prc-start-date-month'] }} {{ data['case-prc-start-date-year'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-dates">Change<span class="nhsuk-u-visually-hidden"> PRC start date</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">PRC end date</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-end-date-day'] }} {{ data['case-prc-end-date-month'] }} {{ data['case-prc-end-date-year'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-dates">Change<span class="nhsuk-u-visually-hidden"> PRC end date</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">County of treatment</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-country'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> County of treatment</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Treatment facility name</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-name'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> treatment facility name</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Treatment facility email address</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-email'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> treatment facility email address</span></a>
+              </dd>
+            </div>
+            
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Contact details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Home address</dt>
+              <dd class="nhsuk-summary-list__value">12 Willow Road<br />Sunderland<br />SR5 6UT<br />United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Correspondence address</dt>
+              <dd class="nhsuk-summary-list__value">12 Willow Road<br />Sunderland<br />SR5 6UT<br />United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Email address</dt>
+              <dd class="nhsuk-summary-list__value">aliroberts89@email.com</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Phone number</dt>
+              <dd class="nhsuk-summary-list__value">07787 123123</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Issue PRC
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

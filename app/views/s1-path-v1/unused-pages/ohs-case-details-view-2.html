@@ -1,0 +1,546 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- LEGACY OHS SCREEN: Extends the layout from /views/layout-ohs.html -->
+{% extends 'layout-ohs.html' %}
+
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+  <span class="nhsuk-caption-l">OHS reference number: 230123456</span>
+      <h1>Ali Roberts</h1>
+
+      <form action="ohs-case-details-view-2" method="post">
+
+
+        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+          <h2 class="nhsuk-tabs__title">
+            Contents
+          </h2>
+        
+
+          
+          <ul class="nhsuk-tabs__list">
+        
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#past-day">
+                Personal details
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+              <a class="nhsuk-tabs__tab" href="#past-week">
+                Entitlements
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#past-month">
+                Case history
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#past-year">
+                Case notes
+              </a>
+            </li>
+
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#past-year">
+                Documents
+              </a>
+            </li>
+        
+          </ul>
+        
+          <div class="nhsuk-tabs__panel" id="past-day">
+        
+
+          <h3 class="nhsuk-heading-m">Personal details</h3>
+
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                Ali Roberts
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                16 May 1989
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                National Insurance number
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                -
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> national insurance number</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date of death
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                -
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> date of death</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            </dl>
+      
+
+            <h3 class="nhsuk-heading-m">Address details</h3>
+
+            <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Home address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  12 Willow Road <br> Sunderland <br> SR5 6UT <br> United Kingdom
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> Residential address</span>
+                  </a>
+            
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Correspondence address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  12 Willow Road <br> Sunderland <br> SR5 6UT <br> United Kingdom
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> Correspondence address</span>
+                  </a>
+            
+              </div>
+            </dl>
+
+            <h3 class="nhsuk-heading-m">Contact details</h3>
+
+            <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  aliroberts89@email.com
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> email</span>
+                  </a>
+            
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Phone
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  07787 123 123
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> telephone</span>
+                  </a>
+            
+              </div>
+            </dl>
+
+
+
+          </div>
+        <!---Entitlements section-->
+          <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="past-week">
+
+            <div class="table-content table-unclickable">
+              <div class="nhsuk-heading-xs width-130"><heading>Entitlement</heading></div>
+              <div class="nhsuk-heading-xs width-120"><heading>Start date</heading></div>
+              <div class="nhsuk-heading-xs width-120"><heading>End date</heading></div>
+              <div class="nhsuk-heading-xs width-130"><heading>Main or<br>dependant</heading></div>
+              <div class="nhsuk-heading-xs width-130"><heading>Country</heading></div>
+              <div class="nhsuk-heading-xs width-200"><heading>Status</heading></div>
+            </div>
+
+            <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-u-margin-top-0">
+            <hr class="nhsuk-section-break nhsuk-section-break--visible">
+
+
+            <div class="table-content table-clickable">
+              <div class="nhsuk-body-xs width-130"><p>S072</p></div>
+              <div class="nhsuk-body-xs width-120"><p>14 Dec 2023</p></div>
+              <div class="nhsuk-body-xs width-120"><p>12 Jan 2024</p></div>
+              <div class="nhsuk-body-xs width-130"><p>Main</p></div>
+              <div class="nhsuk-body-xs width-130"><p>Netherlands</p></div>
+              <div class="table-unclickable2 width-200">
+                <div class="nhsuk-tag nhsuk-tag--yellow ">Issued - send S072</div>
+              </div>
+              <a class="toggle-info width-90" href="#"><p>More info</p></a>
+            </div>
+
+          <div class="table-hidden">
+            <div class="table-content">
+              <div class="table-unclickable width-600">
+              <div class="nhsuk-details__text">
+                <h3>Additional entitlement details</h3>
+
+                <dl class="nhsuk-summary-list">
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                      Reference number
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      230123456
+                    </dd>
+                  </div>
+                
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                      Request received
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      11 December 2023
+                    </dd>
+                  </div>
+          
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    Applicant type
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    RINA member state
+                  </dd>
+                </div>
+              
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    PRC number
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    808260000020025253256
+                  </dd>
+                </div>
+        
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">
+                    RINA international case ID
+                  </dt>
+                  <dd class="nhsuk-summary-list__value">
+                    2773464183514212
+                  </dd>
+                </div>
+                              
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                      Treatment facility name
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                      Member state 
+                    </dd>
+                  </div>
+                
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">
+                      Treatment facility email address
+                    </dt>
+                    <dd class="nhsuk-summary-list__value">
+                    </dd>
+                  </div>
+                </dl>    
+              </div>
+            </div>
+            
+<!--BUTTONS ON THE RIGHT-->
+
+              <div class="width-200 nhsuk-u-margin-top-4 nhsuk-u-margin-left-8">
+                <a class="nhsuk-body-xs" href="so45-personal"><p>Send to OHS RINA</p></a>
+                <a class="nhsuk-body-xs " href="#"><p>Add document</p></a>
+              </div>
+            </div>
+            <br>
+
+            </div>
+
+<!--END OF BUTTONS ON THE RIGHT-->
+
+            <hr class="nhsuk-section-break nhsuk-section-break--visible">
+
+            <div class="table-content table-clickable">
+              <div class="nhsuk-body-xs width-130"><p>PRC</p></div>
+              <div class="nhsuk-body-xs width-120"><p>4 Dec 2023</p></div>
+              <div class="nhsuk-body-xs width-120"><p>1 Jan 2024</p></div>
+              <div class="nhsuk-body-xs width-130"><p>Main</p></div>
+              <div class="nhsuk-body-xs width-130"><p>Netherlands</p></div>
+              <div class="table-unclickable2 width-200">
+                <div class="nhsuk-tag nhsuk-tag--yellow ">Issued</div>
+              </div>
+              <a class="nhsuk-body-xs width-90" href="#"><p>More info</p></a>
+            </div>
+
+            <hr class="nhsuk-section-break nhsuk-section-break--visible">
+
+            <br>
+
+            <div class="nhsuk-form-group">
+              <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+                Create a new entitlement
+              </button>
+            </div>
+          </div>
+        
+          <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="past-month">
+
+            <table role="table" class="nhsuk-table-responsive">
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" class="" scope="col">
+                    Type
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Reference
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Date and time
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Description
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Action
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Officer
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>S045
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>230123456
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>15 Dec 2023 08:58
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>Type: S045<br>Source: RINA<br>Country: Netherlands<br>Status: Pending Check
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>Entitlement created
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>Mike Partridge
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>15 Dec 2023 08:58
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>Residence check has been requested
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>Residency checked
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>System
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>PRC
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>25053426
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>15 Dec 2023 08:14
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>Age </span>Type: PRC<br>Source: Customer<br>Country: Netherlands<br>Status: Pending Check
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>Entitlement created
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>Mike Partridge
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>15 Dec 2023 08:14
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>Residence check has been requested
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>Residency checked
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>System
+                  </td>
+                </tr>
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>-
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>15 Dec 2023 08:14
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">Age </span>Name: Ali Roberts
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How much? </span>Person created
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading">How often? </span>Mike Partridge
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        
+          </div>
+        
+          <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="past-year">
+        
+            <table role="table" class="nhsuk-table-responsive">
+            </table>
+        
+          </div>
+        
+        </div>
+
+
+        
+        
+        <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="submit">
+          Exit record
+        </button>
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    // Get the elements
+    const toggleInfoLink = document.querySelector('.toggle-info');
+    const tableHidden = document.querySelector('.table-hidden');
+
+    // Function to toggle visibility and text
+    function toggleInfo() {
+        if (tableHidden.style.display === 'block') {
+            tableHidden.style.display = 'none';
+            toggleInfoLink.innerHTML = '<p>More info</p>';
+        } else {
+            tableHidden.style.display = 'block';
+            toggleInfoLink.innerHTML = '<p>Less info</p>';
+        }
+    }
+
+    // Add a click event listener to the toggleInfoLink
+    toggleInfoLink.addEventListener('click', toggleInfo);
+</script>
+
+{% endblock %}

@@ -1,0 +1,235 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% set a = "foo" %}
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- For adding a breadcrumb -->
+
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1>
+        Review and send S072
+      </h1>
+      
+       <details class ="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">View full details</span>
+        </summary>
+
+        <div class="nhsuk-details__text">
+
+  
+            {% set S072 =  [
+            
+            {
+              section: {
+                title: "Person",
+                questions: [
+                { 
+                  question: "Family name(s)",
+                  default: data.applicant.lastname
+                },
+                {
+                  question: "Forename(s)",
+                  default: data.applicant.firstname
+               },
+                {
+                  question: "Date of birth",
+                  default: data.applicant.dob
+                },
+                {
+                  question: "Sex",
+                  default: data.applicant.sex
+                },
+                {
+                  question: "Family name(s) at birth"
+                },
+                {
+                  question: "Forename(s) at birth"
+                },
+                {
+                  question: "Country",
+                  default: data.applicant.address.country
+                },
+                {
+                  question: "Personal identification number (PIN)",
+                  default: data.applicant.NINO
+                },
+                {
+                  question: "Sector"
+                },
+                {
+                  question: "Institution ID",
+                  default: "UK: UK033"
+
+                },
+                {
+                  question: "Institution name",
+                  default: "Department of Health and Social Care"
+
+                },
+                {
+                  question: "Nationality"
+
+                }]
+              }  
+
+            },
+            {
+              section: {
+                title: "Person's address",
+                questions: [
+                  {
+                    question: "Street",
+                    default: data.applicant.address.street
+                  },
+                  {
+                    question: "Building name",
+                    default: data.applicant.address.buildingname
+                  },
+                  {
+                    question: "Town",
+                    default: data.applicant.address.town
+                  },
+                  {
+                    question: "Postal code",
+                    default: data.applicant.address.postalcode
+                  },
+                  {
+                    question: "Region",
+                    default: data.applicant.address.region
+                  },
+                  {
+                    question: "Country",
+                    default: data.applicant.address.country
+                  },
+                  {
+                    question: "Residence in this country since",
+                    default: data.applicant.startdate
+                  }
+                ]
+              } 
+            },
+            {
+              section: {
+                title: "Status (of the person for whom an entitlement document is requested)",
+                questions: [
+                  {
+                    question: "Status",
+                    default: "Pensioner"
+                  }
+                ]
+              }
+            }
+            ]              
+                         
+            %}
+
+            {% for section in S072 %}
+
+            <div class="nhsuk-form-group">
+
+              <h2>{{section.section.title}}</h2>
+    
+              <dl class="nhsuk-summary-list">
+  
+            {% for question in section.section.questions %}
+
+
+              
+  
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">{{question.question}}</dt>
+                <dd class="nhsuk-summary-list__value"><p>{{question.default}}</p></dd>
+<!--                 <dd class="nhsuk-summary-list__actions">
+                  <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+                </dd> -->
+              </div>
+  
+            {% endfor %}
+
+          </dl>
+
+            {% endfor %}
+       
+            
+    
+  
+          </div>
+
+        </div>
+
+      </details>
+
+
+      <form action="review-s072" method="post">
+
+      
+   
+
+       
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Information on entitlement</h2>
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Type of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">Open</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> type of entitlement</span></a>
+              </dd>
+            </div>
+        
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Start date of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">
+              {% if data.applicant.pensionBeforeStartDate %}
+                  {{data.applicant.startdate}}
+              {% else %}
+                  {{data.applicant.pensionStartDate}}
+              {% endif %}
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> start date of entitlement</span></a>
+              </dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+
+        <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

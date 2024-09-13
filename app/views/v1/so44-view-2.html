@@ -1,0 +1,86 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l">SO44: Request for entitlement document</span>
+      <h1>2. Address</h1>
+
+      <p class="nhsuk-body-m">Address of the person for whom the entitlement document is requested.</p>
+
+
+      <form action="so44-view-2" method="post">
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.1.</span>Street</label>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.2.</span>Building name</label>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.3.</span>Town</label>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.4.</span>Postal code</label>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.5.</span>Region</label>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text">
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="so44-tbc"><span class="prefix">2.6.</span>Country</label>
+          <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+            <option value="1"selected>Choose a nationality</option>
+            <option value="2">United Kingdom</option>
+            <option value="3">Spain</option>
+          </select>        
+        </div>    
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

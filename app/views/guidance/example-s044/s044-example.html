@@ -1,0 +1,331 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-guidance.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+{{ backLink({
+  "href": "s044-splash",
+  "text": "Go back to design guidance"
+}) }}
+<script type="text/javascript" src="/js/accessible-autocomplete.min.js"></script>
+<script>
+const countries = [
+          "Afghanistan",
+          "Akrotiri",
+          "Albania",
+          "Algeria",
+          "American Samoa",
+          "Andorra",
+          "Angola",
+          "Anguilla",
+          "Antarctica",
+          "Antigua and Barbuda",
+          "Argentina",
+          "Armeni",
+          "Aruba",
+          "Ashmore and Cartier Island",
+          "Australia",
+          "Austria",
+          "Azerbaijan",
+          "Bahamas",
+          "Bahrain",
+          "Bangladesh",
+          "Barbados",
+          "Bassas da India",
+          "Belarus",
+          "Belgium",
+          "Belize",
+          "Benin",
+          "Bermuda",
+          "Bhutan",
+          "Bolivia",
+          "Bosnia and Herzegovina",
+          "Botswana",
+          "Bouvet Island",
+          "Brazil",
+          "British Indian Ocean Territory",
+          "British Virgin Islands",
+          "Brunei",
+          "Bulgaria",
+          "Burkina Faso",
+          "Burma",
+          "Burundi",
+          "Cambodia",
+          "Cameroon",
+          "Canada",
+          "Cape Verde",
+          "Cayman Islands",
+          "Central African Republic",
+          "Chad",
+          "Chile",
+          "China",
+          "Christmas Island",
+          "Clipperton Island",
+          "Cocos (Keeling) Islands",
+          "Colombia",
+          "Comoros",
+          "Congo, Democratic Republic of the",
+          "Congo, Republic of the",
+          "Cook Islands",
+          "Coral Sea Islands",
+          "Costa Rica",
+          "Cote d'Ivoire",
+          "Croatia",
+          "Cuba",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Dhekelia",
+          "Djibouti",
+          "Dominica",
+          "Dominican Republic",
+          "Ecuador",
+          "Egypt",
+          "El Salvador",
+          "Equatorial Guinea",
+          "Eritrea",
+          "Estonia",
+          "Ethiopia",
+          "Europa Island",
+          "Falkland Islands (Islas Malvinas)",
+          "Faroe Islands",
+          "Fiji",
+          "Finland",
+          "France",
+          "French Guiana",
+          "French Polynesia",
+          "French Southern and Antarctic Lands",
+          "Gabon",
+          "Gambia, The",
+          "Gaza Strip",
+          "Georgia",
+          "Germany",
+          "Ghana",
+          "Gibraltar",
+          "Glorioso Islands",
+          "Greece",
+          "Greenland",
+          "Grenada",
+          "Guadeloupe",
+          "Guam",
+          "Guatemala",
+          "Guernsey",
+          "Guinea",
+          "Guinea-Bissau",
+          "Guyana",
+          "Haiti",
+          "Heard Island and McDonald Islands",
+          "Holy See (Vatican City)",
+          "Honduras",
+          "Hong Kong",
+          "Hungary",
+          "Iceland",
+          "India",
+          "Indonesia",
+          "Iran",
+          "Iraq",
+          "Ireland",
+          "Isle of Man",
+          "Israel",
+          "Italy",
+          "Jamaica",
+          "Jan Mayen",
+          "Japan",
+          "Jersey",
+          "Jordan",
+          "Juan de Nova Island",
+          "Kazakhstan",
+          "Kenya",
+          "Kiribati",
+          "Korea, North",
+          "Korea, South",
+          "Kuwait",
+          "Kyrgyzstan",
+          "Laos",
+          "Latvia",
+          "Lebanon",
+          "Lesotho",
+          "Liberia",
+          "Libya",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Macau",
+          "Macedonia",
+          "Madagascar",
+          "Malawi",
+          "Malaysia",
+          "Maldives",
+          "Mali",
+          "Malta",
+          "Marshall Islands",
+          "Martinique",
+          "Mauritania",
+          "Mauritius",
+          "Mayotte",
+          "Mexico",
+          "Micronesia, Federated States of",
+          "Moldova",
+          "Monaco",
+          "Mongolia",
+          "Montserrat",
+          "Morocco",
+          "Mozambique",
+          "Namibia",
+          "Nauru",
+          "Navassa Island",
+          "Nepal",
+          "Netherlands",
+          "Netherlands Antilles",
+          "New Caledonia",
+          "New Zealand",
+          "Nicaragua",
+          "Niger",
+          "Nigeria",
+          "Niue",
+          "Norfolk Island",
+          "Northern Mariana Islands",
+          "Norway",
+          "Oman",
+          "Pakistan",
+          "Palau",
+          "Panama",
+          "Papua New Guinea",
+          "Paracel Islands",
+          "Paraguay",
+          "Peru",
+          "Philippines",
+          "Pitcairn Islands",
+          "Poland",
+          "Portugal",
+          "Puerto Rico",
+          "Qatar",
+          "Reunion",
+          "Romania",
+          "Russia",
+          "Rwanda",
+          "Saint Helena",
+          "Saint Kitts and Nevis",
+          "Saint Lucia",
+          "Saint Pierre and Miquelon",
+          "Saint Vincent and the Grenadines",
+          "Samoa",
+          "San Marino",
+          "Sao Tome and Principe",
+          "Saudi Arabia",
+          "Senegal",
+          "Serbia and Montenegro",
+          "Seychelles",
+          "Sierra Leone",
+          "Singapore",
+          "Slovakia",
+          "Slovenia",
+          "Solomon Islands",
+          "Somalia",
+          "South Africa",
+          "South Georgia and the South Sandwich Islands",
+          "Spain",
+          "Spratly Islands",
+          "Sri Lanka",
+          "Sudan",
+          "Suriname",
+          "Svalbard",
+          "Swaziland",
+          "Sweden",
+          "Switzerland",
+          "Syria",
+          "Taiwan",
+          "Tajikistan",
+          "Tanzania",
+          "Thailand",
+          "Timor-Leste",
+          "Togo",
+          "Tokelau",
+          "Tonga",
+          "Trinidad and Tobago",
+          "Tromelin Islan",
+          "Tunisia",
+          "Turkey",
+          "Turkmenistan",
+          "Turks and Caicos Islands",
+          "Tuvalu",
+          "Uganda",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Uruguay",
+          "Uzbekistan",
+          "Vanuatu",
+          "Venezuela",
+          "Vietnam",
+          "Virgin Islands",
+          "Wake Island",
+          "Wallis and Futuna",
+          "West Bank",
+          "Western Sahara",
+          "Yemen",
+          "Zambia",
+          "Zimbabwe",
+          "Unknown"
+];
+</script>
+
+<h1 class="app-page-heading">
+  <span class="nhsuk-caption-l">
+   S044 - Request for entitlement
+  <span class="nhsuk-u-visually-hidden"> - </span>
+  </span>
+  Person
+  <div>
+  </div>
+</h1>
+
+<!--START OF 1.1.PERSON IDENTIFICATION-->
+
+{% include 'guidance/fieldsets/1-1-person-identification.html' %}
+
+
+<!--END OF 1.1.PERSON IDENTIFICATION-->
+<hr class="nhsuk-section-break nhsuk-section-break--l nhsuk-section-break--visible">
+
+
+
+<!--END OF 1.1.8 IF PIN NOT PROVIDED FOR EVERY INSTITUTION, PLEASE PROVIDE-->
+
+<!--START OF 1.2 ADDITIONAL INFORMATION ON THE PERSON-->
+
+{% include 'guidance/fieldsets/1-2-additional-info.html' %}
+<!--END OF 1.2 ADDITIONAL INFORMATION ON THE PERSON-->
+
+
+{{ button({
+  "text": "Save and continue",
+  "href": "s044-example-2"
+}) }}
+
+{% endblock %}
+
+

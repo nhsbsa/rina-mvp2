@@ -1,0 +1,32 @@
+{% call fieldset({
+    legend: {
+      "text": "Additional information on the person",
+      "classes": "nhsuk-fieldset__legend--l",
+      "isPageHeading": false
+    }
+  }) %}
+
+  <div class="nhsuk-form-group">
+    <p class="nhsuk-u-margin-bottom-1">Status of person (optional)</p>
+    <div class="nhsuk-hint" id="contact-hint">
+      Hold Control (Crtl) key to select multiple options.
+    </div>
+    <select class="nhsuk-select nhsuk-u-width-two-thirds" id="status" name="status" multiple style="height:300px">
+      <option value="1">Choose status</option>
+      <option value="2" selected>Employed person</option>
+      <option value="3">Self-employed person</option>
+      <option value="4">Frontier worker</option>
+      <option value="5">Former frontier worker</option>
+      <option value="6">Pensioner</option>
+      <option value="7">Pension claimant</option>
+      <option value="8">Unemployed person</option>
+      <option value="9">Family member/dependant</option>
+      <option value="10">Family member of employed person</option>
+      <option value="11">Family member of a pensioner</option>
+      <option value="12">Student</option>
+      <option value="13">Non-active person</option>
+      <option value="14">Other</option>
+    </select>        
+  </div>    
+ 
+    {% endcall %}

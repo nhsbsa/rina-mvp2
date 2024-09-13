@@ -1,0 +1,830 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="test-pages">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+      <h1>Test pages</h1>
+      <h2>Multi-select drop down</h2>
+
+      <form action="p2-h001-create-3-request" method="post">
+        
+        <div class="nhsuk-form-group">
+          <div class="nhsuk-form-group">
+              <div class="nhsuk-form-group">
+                  <p class="nhsuk-u-margin-bottom-4">Status of person</p>
+
+                  <div id="selected-options-container" class="nhsuk-tag--white">
+                    <!-- Selected options will appear here -->
+                </div>
+                  <select class="nhsuk-select nhsuk-u-width-full nhsuk-u-margin-top-4" id="status" name="status">
+                      <option value="1">Choose status</option>
+                      <option value="2">Employed person</option>
+                      <option value="3">Self-employed person</option>
+                      <option value="4">Frontier worker</option>
+                      <option value="5">Former frontier worker</option>
+                      <option value="6">Pensioner</option>
+                      <option value="7">Pension claimant</option>
+                      <option value="8">Unemployed person</option>
+                      <option value="9">Family member/dependant</option>
+                      <option value="10">Family member of employed person</option>
+                      <option value="11">Family member of a pensioner</option>
+                      <option value="12">Student</option>
+                      <option value="13">Non-active person</option>
+                      <option value="14">Other</option>
+                  </select>
+              </div>
+    
+          </div>
+      </div>
+      
+      <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              const selectElement = document.getElementById('status');
+              const selectedOptionsContainer = document.getElementById('selected-options-container');
+      
+              selectElement.addEventListener('change', function() {
+                  renderSelectedOptions();
+              });
+      
+              function renderSelectedOptions() {
+                  // Clear previous selections
+                  selectedOptionsContainer.innerHTML = '';
+      
+                  // Get all selected options
+                  const selectedOptions = [...selectElement.selectedOptions];
+      
+                  // Create a card for each selected option
+                  selectedOptions.forEach(option => {
+                      const card = document.createElement('div');
+                      card.classList.add('nhsuk-tag--white');
+                      card.textContent = option.textContent;
+                      selectedOptionsContainer.appendChild(card);
+                  });
+              }
+          });
+      </script>      
+                
+      <hr>
+
+<h2>Revealing checkboxes</h2>
+
+<form>
+
+  <div class="nhsuk-form-group">
+
+    <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+      <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+        <h1 class="nhsuk-fieldset__heading">
+          What is the person's nationality?
+        </h1>
+      </legend>
+
+      <div class="nhsuk-hint" id="contact-hint">
+        Select all options that are relevant.
+      </div>
+
+      <div class="nhsuk-checkboxes nhsuk-checkboxes--conditional">
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Country</p>
+          <select class="nhsuk-select nhsuk-u-width-full nhsuk-u-margin-bottom-2" id="select-1" name="select-1" value="ES4848FHYD">
+            <option value="1">Choose country</option>
+            <option value="2" selected>United Kingdom</option>
+            <option value="3">Spain</option>
+          </select>       
+        </div>  
+
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="contact-2">
+            Do they have another nationality?
+          </label>
+        </div>
+
+        <div class="nhsuk-checkboxes__conditional nhsuk-checkboxes__conditional--hidden" id="conditional-contact-2">
+
+  <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Country</p>
+          <select class="nhsuk-select nhsuk-u-width-full nhsuk-u-margin-bottom-4" id="select-2" name="select-2" value="ES4848FHYD">
+            <option value="1" selected>Choose country</option>
+            <option value="2">Austria</option>
+            <option value="3">Brazil</option>
+            <option value="4">Croatia</option>
+            <option value="5">Denmark</option>
+            <option value="6">Eygpt</option>
+            <option value="7">Finland</option>
+            <option value="8">Spain</option>
+          </select>        
+        </div>  
+
+        </div>
+
+      </div>
+    </fieldset>
+<hr>
+  </div>
+
+</form>
+
+
+
+<h2>Auto complete text box</h2>
+
+
+<select class="nhsuk-select" id="location-picker">
+  <option value="">Select a country</option>
+  <option value="fr">France</option>
+  <option value="de">Germany</option>
+  <option value="gb">United Kingdom</option>
+</select>
+
+<script>
+accessibleAutocomplete.enhanceSelectElement({
+  defaultValue: '',
+  selectElement: document.querySelector('#location-picker')
+})
+</script>
+
+
+
+<hr>
+    
+
+<!--MORE TESTING--------------------------------------------------------------------------------->
+
+<h2>Attempt 2</h2>
+
+<div class="nhsuk-form-group">
+  <label class="nhsuk-label" for="country-hint">
+    Country
+  </label>
+  <p class="nhsuk-hint" id="country-hint">Start entering a country below and then choose from the options provided.</p>
+  <div id="search-country"></div>
+</div>
+
+
+
+
+<script type="text/javascript" src="/js/accessible-autocomplete.min.js"></script>
+
+<script>
+  const countries = [
+            "Afghanistan",
+            "Akrotiri",
+            "Albania",
+            "Algeria",
+            "American Samoa",
+            "Andorra",
+            "Angola",
+            "Anguilla",
+            "Antarctica",
+            "Antigua and Barbuda",
+            "Argentina",
+            "Armeni",
+            "Aruba",
+            "Ashmore and Cartier Island",
+            "Australia",
+            "Austria",
+            "Azerbaijan",
+            "Bahamas",
+            "Bahrain",
+            "Bangladesh",
+            "Barbados",
+            "Bassas da India",
+            "Belarus",
+            "Belgium",
+            "Belize",
+            "Benin",
+            "Bermuda",
+            "Bhutan",
+            "Bolivia",
+            "Bosnia and Herzegovina",
+            "Botswana",
+            "Bouvet Island",
+            "Brazil",
+            "British Indian Ocean Territory",
+            "British Virgin Islands",
+            "Brunei",
+            "Bulgaria",
+            "Burkina Faso",
+            "Burma",
+            "Burundi",
+            "Cambodia",
+            "Cameroon",
+            "Canada",
+            "Cape Verde",
+            "Cayman Islands",
+            "Central African Republic",
+            "Chad",
+            "Chile",
+            "China",
+            "Christmas Island",
+            "Clipperton Island",
+            "Cocos (Keeling) Islands",
+            "Colombia",
+            "Comoros",
+            "Congo, Democratic Republic of the",
+            "Congo, Republic of the",
+            "Cook Islands",
+            "Coral Sea Islands",
+            "Costa Rica",
+            "Cote d'Ivoire",
+            "Croatia",
+            "Cuba",
+            "Cyprus",
+            "Czech Republic",
+            "Denmark",
+            "Dhekelia",
+            "Djibouti",
+            "Dominica",
+            "Dominican Republic",
+            "Ecuador",
+            "Egypt",
+            "El Salvador",
+            "Equatorial Guinea",
+            "Eritrea",
+            "Estonia",
+            "Ethiopia",
+            "Europa Island",
+            "Falkland Islands (Islas Malvinas)",
+            "Faroe Islands",
+            "Fiji",
+            "Finland",
+            "France",
+            "French Guiana",
+            "French Polynesia",
+            "French Southern and Antarctic Lands",
+            "Gabon",
+            "Gambia, The",
+            "Gaza Strip",
+            "Georgia",
+            "Germany",
+            "Ghana",
+            "Gibraltar",
+            "Glorioso Islands",
+            "Greece",
+            "Greenland",
+            "Grenada",
+            "Guadeloupe",
+            "Guam",
+            "Guatemala",
+            "Guernsey",
+            "Guinea",
+            "Guinea-Bissau",
+            "Guyana",
+            "Haiti",
+            "Heard Island and McDonald Islands",
+            "Holy See (Vatican City)",
+            "Honduras",
+            "Hong Kong",
+            "Hungary",
+            "Iceland",
+            "India",
+            "Indonesia",
+            "Iran",
+            "Iraq",
+            "Ireland",
+            "Isle of Man",
+            "Israel",
+            "Italy",
+            "Jamaica",
+            "Jan Mayen",
+            "Japan",
+            "Jersey",
+            "Jordan",
+            "Juan de Nova Island",
+            "Kazakhstan",
+            "Kenya",
+            "Kiribati",
+            "Korea, North",
+            "Korea, South",
+            "Kuwait",
+            "Kyrgyzstan",
+            "Laos",
+            "Latvia",
+            "Lebanon",
+            "Lesotho",
+            "Liberia",
+            "Libya",
+            "Liechtenstein",
+            "Lithuania",
+            "Luxembourg",
+            "Macau",
+            "Macedonia",
+            "Madagascar",
+            "Malawi",
+            "Malaysia",
+            "Maldives",
+            "Mali",
+            "Malta",
+            "Marshall Islands",
+            "Martinique",
+            "Mauritania",
+            "Mauritius",
+            "Mayotte",
+            "Mexico",
+            "Micronesia, Federated States of",
+            "Moldova",
+            "Monaco",
+            "Mongolia",
+            "Montserrat",
+            "Morocco",
+            "Mozambique",
+            "Namibia",
+            "Nauru",
+            "Navassa Island",
+            "Nepal",
+            "Netherlands",
+            "Netherlands Antilles",
+            "New Caledonia",
+            "New Zealand",
+            "Nicaragua",
+            "Niger",
+            "Nigeria",
+            "Niue",
+            "Norfolk Island",
+            "Northern Mariana Islands",
+            "Norway",
+            "Oman",
+            "Pakistan",
+            "Palau",
+            "Panama",
+            "Papua New Guinea",
+            "Paracel Islands",
+            "Paraguay",
+            "Peru",
+            "Philippines",
+            "Pitcairn Islands",
+            "Poland",
+            "Portugal",
+            "Puerto Rico",
+            "Qatar",
+            "Reunion",
+            "Romania",
+            "Russia",
+            "Rwanda",
+            "Saint Helena",
+            "Saint Kitts and Nevis",
+            "Saint Lucia",
+            "Saint Pierre and Miquelon",
+            "Saint Vincent and the Grenadines",
+            "Samoa",
+            "San Marino",
+            "Sao Tome and Principe",
+            "Saudi Arabia",
+            "Senegal",
+            "Serbia and Montenegro",
+            "Seychelles",
+            "Sierra Leone",
+            "Singapore",
+            "Slovakia",
+            "Slovenia",
+            "Solomon Islands",
+            "Somalia",
+            "South Africa",
+            "South Georgia and the South Sandwich Islands",
+            "Spain",
+            "Spratly Islands",
+            "Sri Lanka",
+            "Sudan",
+            "Suriname",
+            "Svalbard",
+            "Swaziland",
+            "Sweden",
+            "Switzerland",
+            "Syria",
+            "Taiwan",
+            "Tajikistan",
+            "Tanzania",
+            "Thailand",
+            "Timor-Leste",
+            "Togo",
+            "Tokelau",
+            "Tonga",
+            "Trinidad and Tobago",
+            "Tromelin Islan",
+            "Tunisia",
+            "Turkey",
+            "Turkmenistan",
+            "Turks and Caicos Islands",
+            "Tuvalu",
+            "Uganda",
+            "Ukraine",
+            "United Arab Emirates",
+            "United Kingdom",
+            "United States",
+            "Uruguay",
+            "Uzbekistan",
+            "Vanuatu",
+            "Venezuela",
+            "Vietnam",
+            "Virgin Islands",
+            "Wake Island",
+            "Wallis and Futuna",
+            "West Bank",
+            "Western Sahara",
+            "Yemen",
+            "Zambia",
+            "Zimbabwe",
+            "Unknown"
+  ];
+
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#search-country'),
+    id: 'country',
+    name: 'country-autocomplete',
+    source: countries,
+    defaultValue: '{{ data["country-autocomplete"] }}',
+    displayMenu: 'overlay',
+    minLength: 2,
+    tNoResults: function() {
+      return "Other"
+    }
+  });
+</script>
+
+
+<style type="text/css">
+
+  .autocomplete__wrapper {
+      position: relative;
+      max-width: 35em;
+      margin-bottom: 20px;
+      font-family: "GDS Transport",Arial,sans-serif;
+  }
+
+  @media (min-width: 40.0625em) {
+      .autocomplete__wrapper {
+          margin-bottom: 30px;
+      }
+  }
+
+  .autocomplete__hint, .autocomplete__input {
+      border: 2px solid #0b0c0c;
+      border-radius: 0;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding-bottom: 2px;
+      width: 100%;
+  }
+
+  .autocomplete__input {
+      background-color: transparent;
+      position: relative;
+  }
+
+  .autocomplete__hint {
+      color: #b1b4b6;
+      position: absolute;
+  }
+
+  .autocomplete__input--default {
+      padding: 6px 5px 5px;
+      background-color: #ffffff;
+      border: 2px solid #4c6272;
+  }
+
+  .autocomplete__input--focused {
+      outline: 3px solid #fd0;
+      outline-offset: 0;
+      box-shadow: inset 0 0 0 2px;
+  }
+
+  .autocomplete__input--show-all-values {
+      padding: 5px 34px 5px 5px;
+      cursor: pointer;
+  }
+
+  .autocomplete__dropdown-arrow-down {
+      z-index: -1;
+      display: inline-block;
+      position: absolute;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      top: 10px;
+  }
+
+  .autocomplete__menu {
+      background-color: #fff;
+      border: 2px solid #0b0c0c;
+      border-top: 0;
+      color: #0b0c0c;
+      margin: 0;
+      max-height: 342px;
+      overflow-x: hidden;
+      padding: 0;
+      width: 100%;
+      width: calc(100% - 4px);
+  }
+
+  .autocomplete__menu--visible {
+      display: block;
+  }
+
+  .autocomplete__menu--hidden {
+      display: none;
+  }
+
+  .autocomplete__menu--overlay {
+      box-shadow: rgba(0, 0, 0, 0.256863) 0 2px 6px;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      z-index: 100;
+  }
+
+  .autocomplete__menu--inline {
+      position: relative;
+  }
+
+  .autocomplete__option {
+      border-bottom: solid #b1b4b6;
+      border-width: 1px 0;
+      cursor: pointer;
+      display: block;
+      position: relative;
+  }
+
+  .autocomplete__option > * {
+      pointer-events: none;
+  }
+
+  .autocomplete__option:first-of-type {
+      border-top-width: 0;
+  }
+
+  .autocomplete__option:last-of-type {
+      border-bottom-width: 0;
+  }
+
+  .autocomplete__option--odd {
+      background-color: #fafafa;
+  }
+
+  .autocomplete__option--focused, .autocomplete__option:hover {
+      background-color: #1d70b8;
+      border-color: #1d70b8;
+      color: #fff;
+      outline: 0;
+  }
+
+  .autocomplete__option--no-results {
+      background-color: #ffffff;
+      color: #ffffff;
+      cursor: not-allowed;
+  }
+
+  .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+      font-size: 16px;
+      line-height: 1.25;
+  }
+
+  .autocomplete__hint, .autocomplete__option {
+      padding: 5px;
+  }
+
+  @media (min-width: 641px) {
+      .autocomplete__hint, .autocomplete__input, .autocomplete__option {
+          font-size: 19px;
+          line-height: 1.31579;
+      }
+  }
+
+</style>
+
+
+
+<hr>
+<h2>Test</h2>
+
+<!--TEST AREA - NOT SUPPORTED ACROSS THE PROTOTYPES AND BROWSERS -->
+
+<form action="p2-h001-create-3-request" method="post">
+  <div class="nhsuk-form-group">
+      <p class="nhsuk-u-margin-bottom-4">Status of person</p>
+      <div id="selected-options-container-2" class="nhsuk-tag--white">
+          <!-- Selected options will appear here -->
+      </div>
+      <input list="status-options" id="status-input" class="nhsuk-input nhsuk-u-width-full nhsuk-u-margin-top-4" name="status">
+      <datalist id="status-options">
+          <option value="Choose status">
+          <option value="Employed person">
+          <option value="Self-employed person">
+          <option value="Frontier worker">
+          <option value="Former frontier worker">
+          <option value="Pensioner">
+          <option value="Pension claimant">
+          <option value="Unemployed person">
+          <option value="Family member/dependant">
+          <option value="Family member of employed person">
+          <option value="Family member of a pensioner">
+          <option value="Student">
+          <option value="Non-active person">
+          <option value="Other">
+      </datalist>
+  </div>
+</div>
+
+  </form>
+
+<hr>
+
+
+<!-- <div class="nhsuk-form-group">
+  <p class="nhsuk-u-margin-bottom-1">Country</p>
+  <div class="nhsuk-select dropdown-checkbox">
+    <button onclick="toggleDropdown()" class="dropbtn">Choose country</button>
+    <div id="checkboxes" class="dropdown-content">
+      <input type="checkbox" id="checkbox-2" name="country" value="Austria">
+      <label for="checkbox-2">Austria</label><br>
+
+      <input type="checkbox" id="checkbox-3" name="country" value="Brazil">
+      <label for="checkbox-3">Brazil</label><br>
+
+      <input type="checkbox" id="checkbox-4" name="country" value="Croatia">
+      <label for="checkbox-4">Croatia</label><br>
+
+      <input type="checkbox" id="checkbox-5" name="country" value="Denmark">
+      <label for="checkbox-5">Denmark</label><br>
+
+      <input type="checkbox" id="checkbox-6" name="country" value="Eygpt">
+      <label for="checkbox-6">Eygpt</label><br>
+
+      <input type="checkbox" id="checkbox-7" name="country" value="Finland">
+      <label for="checkbox-7">Finland</label><br>
+
+      <input type="checkbox" id="checkbox-8" name="country" value="Spain">
+      <label for="checkbox-8">Spain</label><br>
+    </div>
+  </div>
+</div>
+<script>
+  
+function toggleDropdown() {
+  var dropdown = document.getElementById("checkboxes");
+  if (dropdown.style.display === "block") {
+    dropdown.style.display = "none";
+  } else {
+    dropdown.style.display = "block";
+  }
+}
+</script>
+
+
+
+
+
+<hr>
+<table class="nhsuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all">
+  <thead class="nhsuk-table__head">
+    <tr class="nhsuk-table__row">
+      <th class="nhsuk-table__header" scope="col" id="select-all"></th>
+      <th class="nhsuk-table__header" scope="col">Name</th>
+      <th class="nhsuk-table__header" scope="col">Elevation</th>
+      <th class="nhsuk-table__header" scope="col">Continent</th>
+      <th class="nhsuk-table__header nhsuk-table__header--numeric" scope="col">First summit</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row nhsuk-table__row--selected">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-aconcagua">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-aconcagua">
+            <span class="nhsuk-visually-hidden">Select Aconcagua</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Aconcagua</td>
+      <td class="nhsuk-table__cell">6,961 meters</td>
+      <td class="nhsuk-table__cell">South America</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1897</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-denali" value="denali">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-denali">
+            <span class="nhsuk-visually-hidden">Select Denali</span>
+          </label>
+        </div>
+      </td>
+      </td>
+      <td class="nhsuk-table__cell">Denali</td>
+      <td class="nhsuk-table__cell">6,194 meters</td>
+      <td class="nhsuk-table__cell">North America</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1913</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-elbrus" value="elbrus">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-elbrus">
+            <span class="nhsuk-visually-hidden">Select Elbrus</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Elbrus</td>
+      <td class="nhsuk-table__cell">5,642 meters</td>
+      <td class="nhsuk-table__cell">Europe</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1874</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-everest" value="everest">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-everest">
+            <span class="nhsuk-visually-hidden">Select Everest</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Everest</td>
+      <td class="nhsuk-table__cell">8,850 meters</td>
+      <td class="nhsuk-table__cell">Asia</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1953</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-kilimanjaro" value="kilimanjaro">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-kilimanjaro">
+            <span class="nhsuk-visually-hidden">Select Kilimanjaro</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Kilimanjaro</td>
+      <td class="nhsuk-table__cell">5,895 meters</td>
+      <td class="nhsuk-table__cell">Africa</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1889</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-puncak-jaya" value="puncak-jaya">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-puncak-jaya">
+            <span class="nhsuk-visually-hidden">Select Puncak Jaya</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Puncak Jaya</td>
+      <td class="nhsuk-table__cell">4,884 meters</td>
+      <td class="nhsuk-table__cell">Australia</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1962</td>
+    </tr>
+    <tr class="nhsuk-table__row">
+      <td class="nhsuk-table__cell">
+        <div class="nhsuk-checkboxes__item nhsuk-checkboxes--small moj-multi-select__checkbox">
+          <input type="checkbox" class="nhsuk-checkboxes__input" id="mountain-vinson" value="vinson">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="mountain-vinson">
+            <span class="nhsuk-visually-hidden">Select Vinson</span>
+          </label>
+        </div>
+      </td>
+      <td class="nhsuk-table__cell">Vinson</td>
+      <td class="nhsuk-table__cell">4,897 meters</td>
+      <td class="nhsuk-table__cell">Antarctica</td>
+      <td class="nhsuk-table__cell nhsuk-table__cell--numeric">1966</td>
+    </tr>
+  </tbody>
+</table> -->
+      
+
+    </div>
+  </div>
+{% endblock %}

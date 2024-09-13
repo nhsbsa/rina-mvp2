@@ -1,0 +1,308 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l">S071: Request for entitlement document - residence</span>
+      <h1>Personal details</h1>
+
+      <form action="so71-part2" method="post">
+        
+        <h4>Person identification</h4>
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Last name</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="Brown">
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">First name</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="Robin">
+        </div>
+        
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+          
+          <div class="nhsuk-form-group nhsuk-u-margin-bottom-2">
+            <p class="nhsuk-u-margin-bottom-1">Date of birth</p>
+          </div>
+          <div class="nhsuk-hint" id="contact-hint">
+            For example, 4 12 2023
+          </div>
+
+          <div class="nhsuk-date-input" id="so44-tbc">
+
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-day">Day</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="so44-tbc-day" name="so44-tbc-day" type="text" pattern="[0-9]*" inputmode="numeric" value=>
+              </div>
+            </div>
+  
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-month">Month</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="so44-tbc-month" name="so44-tbc-month" type="text" pattern="[0-9]*" inputmode="numeric" value=>
+              </div>
+            </div>
+  
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="so44-tbc-year">Year</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="so44-tbc-year" name="so44-tbc-year" type="text" pattern="[0-9]*" inputmode="numeric" value=>
+              </div>
+            </div>
+  
+          </div>
+
+        </fieldset>
+
+        <div class="nhsuk-form-group">
+
+          <p class="nhsuk-u-margin-bottom-1">Sex</p>
+
+          <div class="nhsuk-radios--inline">
+      
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="so44-tbc-patient" name="so44-tbc" type="radio" value="male" checked data-aria-controls="conditional-contact">
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-patient">Male</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="so44-tbc-someone" name="so44-tbc" type="radio" value="female">
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-someone">Female</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="so44-tbc-parent" name="so44-tbce" type="radio" value="unknown">
+              <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-parent">Unknown</label>
+            </div>
+      
+          </div>
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Last name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="Brown">
+        </div>
+        
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">First name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="Robin">
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+        <h4 class="nhsuk-heading-m">Personal identification numbers (PINs) for institutions</h4>
+   
+        
+        <div class="nhsuk-form-group ">
+          {{ select({
+            "id": "case-prc-treatment-facility-country",
+            "classes": "nhsuk-u-width-one-half",
+            "name": "case-prc-treatment-facility-country",
+            "label": {
+              "text": "Country of treatment"
+            },
+            "items": [
+            {
+              "value": "Spain",
+              "text": "Spain",
+              selected: data['case-prc-treatment-facility-country'] === 'Spain'
+            },          
+             {
+              "value": "Austria",
+              "text": "Austria",
+              selected: data['case-prc-treatment-facility-country'] === 'Austria'
+            },
+              {
+                "value": "Belgium",
+                "text": "Belgium",
+                selected: data['case-prc-treatment-facility-country'] === 'Belgium'
+              },
+              {
+                "value": "Croatia",
+                "text": "Croatia",
+                selected: data['case-prc-treatment-facility-country'] === 'Croatia'
+              },
+              {
+                "value": "France",
+                "text": "France",
+                selected: data['case-prc-treatment-facility-country'] === 'France'
+              },
+              {
+                "value": "Germany",
+                "text": "Germany",
+                selected: data['case-prc-treatment-facility-country'] === 'Germany'
+              },
+              {
+                "value": "Italy",
+                "text": "Italy",
+                selected: data['case-prc-treatment-facility-country'] === 'Italy'
+              },
+
+              {
+                "value": "Portugal",
+                "text": "Portugal",
+                selected: data['case-prc-treatment-facility-country'] === 'Portugal'
+              },
+              {
+                "value": "Spain",
+                "text": "Spain",
+                selected: data['case-prc-treatment-facility-country'] === 'Sweden'
+              }
+            ]
+          }) }}
+        </select>
+    </div>
+
+      
+        
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Country PIN</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Sector</p>
+          <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+            <option value="1"selected>Choose a sector</option>
+            <option value="2">AWOD</option>
+            <option value="3">Family benefits</option>
+            <option value="4">All</option>
+            <option value="5">Pensions</option>
+            <option value="6">Recovery</option>
+            <option value="7">Sickness</option>
+            <option value="8">Unemployment Benefits</option>
+          </select>        
+        </div>       
+        
+
+   
+        <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+        <h4 class="nhsuk-heading-m">Institution</h4>
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Institution PIN</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text"  value="{{ data[''] }}">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Institution name</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text"  value="{{ data['case-prc-treatment-facility-name'] if data['case-prc-treatment-facility-name'] else "Member state" }} "/>
+        </div> 
+
+
+        <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-2" data-module="nhsuk-button" type="submit">
+          Add another PIN
+        </button>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+       
+        <h4 class="nhsuk-heading-m"> If PINs are not provided for every institution, please provide details below.</h4>
+        <h5>Place of birth</h5>
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Town</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Region</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Country</p>
+          <select class="nhsuk-select nhsuk-u-width-full nhsuk-u-margin-bottom-4" id="select-1" name="select-1" value="ES4848FHYD">
+            <option value="1"selected>Choose a country</option>
+            <option value="2">United Kingdom</option>
+            <option value="3">Spain</option>
+          </select>        
+        </div>   
+    
+        
+
+        
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Father's last name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Father's first name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Mother's last name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Mother's first name at birth</p>
+          <input class="nhsuk-input" id="so44-tbc" name="so44-tbc" type="text" value="">
+        </div> 
+
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+        <h4 class="nhsuk-heading-m">Additional information on the person</h4>
+
+        <div class="nhsuk-form-group">
+          <p class="nhsuk-u-margin-bottom-1">Nationality</p>
+          <select class="nhsuk-select nhsuk-u-width-full" id="select-1" name="select-1">
+            <option value="1">Choose a nationality</option>
+            <option value="2"selected>United Kingdom</option>
+            <option value="3">Spain</option>
+          </select>        
+        </div>        
+
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

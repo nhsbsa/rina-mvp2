@@ -1,0 +1,145 @@
+{% call fieldset({
+  legend: {
+    "text": "Person identification",
+    "classes": "nhsuk-fieldset__legend--l",
+    "isPageHeading": false
+  }
+}) %}
+
+{% call fieldset({
+
+}) %}
+
+{{ input({
+  "label": {
+    "text": "Family name(s)"
+  },
+  id: "family-name",
+  name: "family-name",
+  classes: "nhsuk-input--width-20"
+}) }}
+
+{{ input({
+  "label": {
+    "text": "Forename(s)"
+  },
+  id: "forename",
+  name: "forename",
+  classes: "nhsuk-input--width-20"
+}) }}
+
+{{ dateInput({
+  "id": "example",
+  "namePrefix": "example",
+  "fieldset": {
+    "legend": {
+      "text": "Date of birth",
+      "classes": "nhsuk-label",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "name": "day",
+      "classes": "nhsuk-input--width-2",
+      "attributes": {
+        "type": "number",
+        "min": "1",
+        "max": "31",
+        "maxlength": "2"
+      }
+    },
+    {
+      "name": "month",
+      "classes": "nhsuk-input--width-2",
+      "attributes": {
+        "type": "number",
+        "min": "1",
+        "max": "12",
+        "maxlength": "2"
+      }
+    },
+    {
+      "name": "year",
+      "classes": "nhsuk-input--width-4",
+      "attributes": {
+        "type": "number",
+        "min": "1900",
+        "max": "2099",
+        "maxlength": "4"
+      }
+    }
+  ]
+}) }}
+
+
+{{ radios({
+  "idPrefix": "example-inline",
+  "name": "example-inline",
+  "classes": "nhsuk-radios--inline",
+  "fieldset": {
+    "legend": {
+      "text": "Sex",
+      "classes": "nhsuk-fieldset__legend",
+      "isPageHeading": false
+    }
+  },
+  "items": [
+    {
+      "value": "Male",
+      "text": "Male"
+    },
+    {
+      "value": "Female",
+      "text": "Female"
+    },
+    {
+      "value": "Unknown",
+      "text": "Unknown"
+    }
+  ]
+}) }}
+
+{{ input({
+  "label": {
+    "text": "Family name(s) at birth (optional)"
+  },
+  id: "Family name(s) at birth",
+  name: "Family name(s) at birth",
+  classes: "nhsuk-input--width-20"
+}) }}
+
+{{ input({
+  "label": {
+    "text": "Forename(s) at birth (optional)"
+  },
+  id: "Forename(s) at birth",
+  name: "Forename(s) at birth",
+  classes: "nhsuk-input--width-20"
+}) }}
+
+{% endcall %}
+<hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+{% call fieldset({
+  legend: {
+    "text": "PIN of the person in each institution",
+    "classes": "nhsuk-fieldset__legend--m",
+    "isPageHeading": false
+  }
+}) %}
+
+  {% include 'guidance/fieldsets/1-1-7-person-identification-numbers.html' %}
+  <hr class="nhsuk-section-break nhsuk-section-break--s nhsuk-section-break--visible nhsuk-u-margin-bottom-2">
+  <!--START OF 1.1.7.1.4. INSTITUTION-->
+  {% include 'guidance/fieldsets/1-1-7-1-4-institution.html' %}
+  <!--END OF 1.1.7.1.4. INSTITUTION-->
+  <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+<!--END OF 1.1.7.PERSONAL IDENTIFICATION NUMBER(S)-->
+
+{% endcall %}
+
+<!--START OF 1.1.8 IF PIN NOT PROVIDED FOR EVERY INSTITUTION, PLEASE PROVIDE-->
+{% include 'guidance/fieldsets/1-1-8-pin-not-provided.html' %}
+
+{% endcall %}

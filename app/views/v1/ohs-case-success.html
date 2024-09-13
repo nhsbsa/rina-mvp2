@@ -1,0 +1,76 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <form action="ohs-case-success" method="post">
+
+        <div class="nhsuk-card nhsuk-card--confirmation nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+
+          <div class="nhsuk-card__content">
+            <h1 class="nhsuk-card__title nhsuk-u-margin-bottom-4">PRC issued for Ali Roberts</h1>
+            <p class="nhsuk-u-font-size-24">
+              OHS reference number<br />
+              <strong class="nhsuk-u-font-size-32">230123456</strong>
+            </p>            
+          </div>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+
+          <p>This PRC has been issued and the SO45 can now be created.</p>
+
+
+        </div>
+
+        <hr />
+
+        <div class="nhsuk-form-group">
+
+          <h2>What happens next</h2>
+          <p>The S045 has been sent to OHS RINA to be reviewed and sent to the member state.</p>
+          <p><a href="#">View updated details</a></p>
+          
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Search again
+          </button>
+        </div>
+
+      </form>
+      
+      <p>
+        <a href="ohs-case-view-so45">Leave OHS and go to OHS RINA</a>
+      </p>
+    
+    </div>
+  </div>
+{% endblock %}

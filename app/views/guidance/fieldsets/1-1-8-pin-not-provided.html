@@ -1,0 +1,96 @@
+{% call fieldset({
+  legend: {
+    "text": "If PIN not provided for every institution, please provide",
+    "classes": "nhsuk-fieldset__legend--m",
+    "isPageHeading": false
+  }
+}) %}
+
+
+{% call fieldset({
+    legend: {
+      "text": "Place of birth",
+      "classes": "nhsuk-fieldset__legend--s",
+      "isPageHeading": false
+    }
+  }) %}
+  
+  {{ input({
+    "label": {
+      "text": "Town"
+    },
+    id: "Town",
+    name: "Town",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Region (optional)"
+    },
+    id: "Region",
+    name: "Region",
+    classes: "nhsuk-input--width-20"
+  }) }}
+
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="country-2">
+      Country
+    </label>
+        <div id="search-country-2"></div>
+  </div>
+
+<script>
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#search-country-2'),
+    id: 'country-2',
+    name: 'country-autocomplete',
+    source: countries,
+    defaultValue: '{{ data["country-autocomplete"] }}',
+    displayMenu: 'overlay',
+    minLength: 2,
+    tNoResults: function() {
+      return "Other"
+    }
+  });
+</script>
+
+  {{ input({
+    "label": {
+      "text": "Father's family name at birth (optional)"
+    },
+    id: "Father's family name at birth",
+    name: "Father's family name at birth",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Forename of father (optional)"
+    },
+    id: "Forename of father",
+    name: "Forename of father",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Mother's family name at birth (optional)"
+    },
+    id: "Mother's family name at birth",
+    name: "Mother's family name at birth",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Forename of mother (optional)"
+    },
+    id: "Forename of mother",
+    name: "Forename of mother",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {% endcall %}
+  {% endcall %}

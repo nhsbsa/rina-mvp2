@@ -1,0 +1,461 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div class="nhsuk-back-link">
+
+  <a class="nhsuk-back-link__link nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0" href="unhappy-h002-start">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Go back</a>
+</div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds ">
+
+      <h1 class="nhsuk-heading-xl">H002: Reply to request for information</h1>
+      
+      <form action="unhappy-h002-view" method="post">
+
+        
+        <div class="nhsuk-form-group">
+          
+          <h2 class="nhsuk-heading-l">Personal details</h2>
+
+          <h2 class="nhsuk-heading-m">Person identity</h2>
+  
+          <dl class="nhsuk-summary-list">
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Last name</dt>
+              <dd class="nhsuk-summary-list__value">Brown</dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">First name</dt>
+              <dd class="nhsuk-summary-list__value">Robin</dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">12 February 1997</dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Sex</dt>
+              <dd class="nhsuk-summary-list__value">Male</dd>
+            </div>
+                                          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Last name at birth</dt>
+              <dd class="nhsuk-summary-list__value">Brown</dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">First name at birth</dt>
+              <dd class="nhsuk-summary-list__value">Robin</dd>
+            </div>
+          
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+
+        <h2>Personal identification numbers (PINs) for institutions</h2>
+  
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Country</dt>
+            <dd class="nhsuk-summary-list__value">Spain</dd>
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Country PIN</dt>
+            <dd class="nhsuk-summary-list__value">222444</dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Sector</dt>
+            <dd class="nhsuk-summary-list__value">-</dd>
+          </div>
+        </dl>
+
+        <h3>Institution</h3>
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Institution PIN</dt>
+            <dd class="nhsuk-summary-list__value">333555</dd>
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Intitution name</dt>
+            <dd class="nhsuk-summary-list__value">Malaga Medics</dd>
+          </div>
+        </dl>
+
+      </div>
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Additional information on the person</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Nationality</dt>
+              <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Status of person</dt>
+              <dd class="nhsuk-summary-list__value">-</dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Address</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Type of address</dt>
+              <dd class="nhsuk-summary-list__value">Country of residence</dd>
+            </div>           
+            
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Street</dt>
+              <dd class="nhsuk-summary-list__value">14 The Grove</dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Building name</dt>
+              <dd class="nhsuk-summary-list__value">-</dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Town</dt>
+              <dd class="nhsuk-summary-list__value">Leeds</dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Postcode</dt>
+              <dd class="nhsuk-summary-list__value">LS2 5YT</dd>
+            </div>
+                      
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Region</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+            </div>
+                      
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Country</dt>
+              <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+            </div>
+          
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+
+        <h2>Information to identify the person</h2>
+  
+        <h4>Person</h4>
+
+        <dl class="nhsuk-summary-list">
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Last name</dt>
+            <dd class="nhsuk-summary-list__value">Brown</dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">First name</dt>
+            <dd class="nhsuk-summary-list__value">Robin</dd>
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Date of birth</dt>
+            <dd class="nhsuk-summary-list__value">12 February 1997</dd>
+          </div>
+        
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Sex</dt>
+            <dd class="nhsuk-summary-list__value">Male</dd>
+          </div>
+                                      
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Last name at birth</dt>
+            <dd class="nhsuk-summary-list__value">Brown</dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">First name at birth</dt>
+            <dd class="nhsuk-summary-list__value">Robin</dd>
+          </div>
+
+        </dl>
+        <h4>Place of birth</h4>
+<dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Town</dt>
+            <dd class="nhsuk-summary-list__value">Leeds</dd>
+          </div>
+                    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Region</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+                    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Country</dt>
+            <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+          </div>
+                    
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Father's last name</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Father's first name at birth</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+                                      
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Mother's last name at birth</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>  
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Mother's first name</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Previous last name</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+          
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Previous first name</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+        
+        </dl>
+
+      </div>
+
+      <div class="nhsuk-form-group">
+
+      <h2>PIN of the sending institution</h2>
+      <h4>Sector PIN</h4>
+      <dl class="nhsuk-summary-list">
+  
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">All</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Sickness in cash</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Sickness in kind</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Pension</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Unemployment</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Occupational disease and accident at work, benefits in cash</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Occupational disease and accident at work, benefits in kind</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Family benefits</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Recovery</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">National tax number</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Other sector PIN</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Details of other sector</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+      
+      </dl>
+
+
+</div>
+        <div class="nhsuk-form-group">
+          
+          <h2>Requested information</h2>
+          <h3>We enclose</h3>
+
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">The following documents</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">The following information</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">The following SEDs</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+            </div>
+          </dl>
+        </div>
+          
+        <h2>Requested information unavailable</h2>
+        <h4>We are unable to send</h4>
+
+        <dl class="nhsuk-summary-list">
+          
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">The following documents</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">The following information</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+          </div>
+          
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">The following SEDs</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+            </div>
+
+            
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Reasons</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              </div>
+        </dl>
+    <div class="nhsuk-form-group">
+          
+      <h2>Additional information</h2>
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">More details</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+      </dl>
+
+    </div>
+
+    <div class="nhsuk-form-group">
+          
+      <h2>Find attached the following documents</h2>
+
+      <dl class="nhsuk-summary-list">
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Predefined documents</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Other documents</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Other document details</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">Details provided</dt>
+          <dd class="nhsuk-summary-list__value"></dd>
+        </div>
+      
+      </dl>
+
+    </div>
+
+
+
+
+  </div>
+{% endblock %}

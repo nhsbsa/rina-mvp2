@@ -1,0 +1,282 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+      <h1 class="app-page-heading">
+        <span class="nhsuk-caption-l">
+          S045: Entitlement document - temporary stay
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        </span>
+        Review and send
+        <div>
+        </div>
+      </h1>
+      
+       <details class ="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">View full details</span>
+        </summary>
+
+        <div class="nhsuk-details__text nhsuk-summary-list--no-border">
+
+  
+            {% set S045 =  [
+            
+            {
+              section: {
+                title: "Person",
+                headinglevel: 2,
+                questions: [
+                { 
+                  question: "Family name(s)",
+                  default: data.applicant.lastname
+                },
+                {
+                  question: "Forename(s)",
+                  default: data.applicant.firstname
+               },
+                {
+                  question: "Date of birth",
+                  default: data.applicant.dob
+                },
+                {
+                  question: "Sex",
+                  default: data.applicant.sex
+                },
+                {
+                  question: "Family name(s) at birth",
+                  default: data.applicant.lastname
+                },
+                {
+                  question: "Forename(s) at birth",
+                  default: data.applicant.firstname
+                }]
+              }
+              },
+
+              {
+                section: {
+                  title: "PIN of the person in each institution ",
+                  headinglevel: 3
+                }
+              },
+                {
+                section: {
+                  title: "Personal Identification Number(s)",
+                  headinglevel: 4,
+                  questions: [
+                {
+                  question: "Country",
+                  default: data.applicant.address.country
+                },
+                {
+                  question: "Personal identification number (PIN)",
+                  default: data.applicant.NINO
+                },
+                {
+                  question: "Sector"
+                },
+                {
+                  question: "Institution ID",
+                  default: "UK: UK033"
+
+                },
+                {
+                  question: "Institution name",
+                  default: "Department of Health and Social Care"
+
+                }]
+              }  
+            },
+
+            {
+                section: {
+                  title: "If PIN not provided for every institution, please provide",
+                  headinglevel: 3
+              }
+            },
+              
+                {
+              section: {
+                title: "Place of birth",
+                headinglevel: 4,
+                questions: [
+                  {
+                    question: "Town",
+                    default: data.applicant.address.town
+                  },
+                  {
+                    question: "Region",
+                    default: data.applicant.address.region
+                  },
+                  {
+                    question: "Country",
+                    default: data.applicant.address.country
+                  },
+                  {
+                    question: "Father's family name at birth"
+                  },
+                  {
+                    question: "Forename of father"
+                  },
+                  {
+                    question: "Mother's family name at birth"
+                  },
+                  {
+                    question: "Forename of mother"
+                  }
+                ]
+              } 
+            },
+            {
+              section: {
+                title: "Additional information on the person",
+                headinglevel: 2,
+                questions: [
+                  {
+                    question: "Nationality"
+                  }
+                ]
+              }
+            },
+            {
+              section: {
+                title: "Address (of the person for whom an entitlement document is issued) ",
+                headinglevel: 2,
+                questions: [
+                  {
+                    question: "Street",
+                    default: data.applicant.address.street
+                  },
+                  {
+                    question: "Building name",
+                    default: data.applicant.address.buildingname
+                  },
+                  {
+                    question: "Town",
+                    default: data.applicant.address.town
+                  },
+                  {
+                    question: "Postal code",
+                    default: data.applicant.address.postalcode
+                  },
+                  {
+                    question: "Region",
+                    default: data.applicant.address.region
+                  },
+                  {
+                    question: "Country",
+                    default: data.applicant.address.country
+                  }
+                ]
+              }
+            }
+            ]              
+            %}
+
+            {% for section in S045 %}
+
+            <div class="nhsuk-form-group">
+
+              {% if section.section.headinglevel==2 %}
+
+              <h2>{{section.section.title}}</h2>
+
+              {% endif %}
+
+
+              {% if section.section.headinglevel==3 %}
+
+              <h3>{{section.section.title}}</h3>
+
+              {% endif %}
+
+
+              {% if section.section.headinglevel==4 %}
+
+              <h4>{{section.section.title}}</h4>
+
+              {% endif %}
+
+              {% if not section.section.questions|length==0 %}
+              <dl class="nhsuk-summary-list">
+              
+                
+                
+
+  
+            {% for question in section.section.questions %}
+
+
+              
+  
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">{{question.question}}</dt>
+                <dd class="nhsuk-summary-list__value"><p>{{question.default}}</p></dd>
+<!--                 <dd class="nhsuk-summary-list__actions">
+                  <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden">{{question.question}}</span></a>
+                </dd> -->
+              </div>
+  
+            {% endfor %}
+
+          </dl>
+{% endif %}
+            {% endfor %}
+       
+            
+    
+  
+          </div>
+
+        </div>
+
+      </details>
+
+
+      <form action="review-s045" method="post">
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Information on entitlement</h2>
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Start date of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.startdate}}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> type of entitlement</span></a>
+              </dd>
+            </div>
+        
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">End date of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.enddate}}</dd>
+                  
+              </dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> start date of entitlement</span></a>
+              </dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+        <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+          Accept and send
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

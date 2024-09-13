@@ -1,0 +1,408 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- LEGACY OHS SCREEN: Extends the layout from /views/layout-ohs.html -->
+{% extends 'layout-ohs.html' %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <span class="nhsuk-caption-l">OHS reference number: {{data.applicant.ohsReference}}</span>
+      <h1>{{data.applicant.firstname}} {{data.applicant.lastname}}</h1>
+
+      <!-- Show warning if address does not match S071 (for prototype this assumes if there is an address in OHS it is different)-->
+      {% if data.applicant.address_OHS %}
+
+      <div class="nhsuk-warning-callout">
+        <h3 class="nhsuk-warning-callout__label">
+          <span role="text">
+            <span class="nhsuk-u-visually-hidden">Important: </span>
+            Addresses do not match
+          </span>
+        </h3>
+        <p>Address on S071 does not match home address or correspondence address.</p>
+        <ul class="nhsuk-list">
+          <li><a href="update-address">Update both addresses to match S071</a></li>
+          <li><a href="#">Update home address only</a></li>
+          <li><a href="#">Update correspondence address only</a></li>
+        </ul>
+        </p>
+      </div>
+
+      {% endif %}
+
+
+      <!-- Show notification (taken from GDS notification pattern) when data is auto-populated -->
+      {% if not data.applicant.inOHS %}
+
+      <div class="nhsuk-notification-banner" role="alert">
+       
+        <div class="nhsuk-notification-banner__content">
+          <span class="nhsuk-u-visually-hidden">Important: </span><p>
+            Personal details automatically populated from
+            <a href="viewS071">S071</a>.
+          </p>
+        </div>
+      </div>
+
+      {% endif %}
+
+      <form action="ohs-case-details-view" method="post">
+
+
+        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+          <h2 class="nhsuk-tabs__title">
+            Contents
+          </h2>
+        
+
+          
+          <ul class="nhsuk-tabs__list">
+        
+            <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+              <a class="nhsuk-tabs__tab" href="#personal">
+                Personal details
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#entitlements">
+                Entitlements
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item ">
+              <a class="nhsuk-tabs__tab" href="#inactive">
+                Case history
+              </a>
+            </li>
+        
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#inactive">
+                Case notes
+              </a>
+            </li>
+
+            <li class="nhsuk-tabs__list-item">
+              <a class="nhsuk-tabs__tab" href="#inactive" >
+                Documents
+              </a>
+            </li>
+        
+          </ul>
+        
+          <div class="nhsuk-tabs__panel " id="personal">
+        
+
+          <h3 class="nhsuk-heading-m">Personal details</h3>
+
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data.applicant.firstname}} {{data.applicant.lastname}}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> name</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data.applicant.dob}}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> date of birth</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                National Insurance number
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {% if data.applicant.NINO_OHS %} 
+                  {{data.applicant.NINO_OHS}}
+                {% else %}
+                  {{data.applicant.NINO}}
+                {% endif %}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> national insurance number</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">
+                Date of death
+              </dt>
+              <dd class="nhsuk-summary-list__value">
+                {{data.applicant.dateofdeath}}
+              </dd>
+          
+              <dd class="nhsuk-summary-list__actions">
+          
+                <a href="#">
+                  Change<span class="nhsuk-u-visually-hidden"> date of death</span>
+                </a>
+          
+              </dd>
+          
+            </div>
+
+            </dl>
+      
+
+            <h3 class="nhsuk-heading-m">Address details</h3>
+
+            <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Home address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {% if data.applicant.address_OHS %}
+                    {{address(data.applicant.address_OHS)}}  
+                  {% else %}
+                    {{address(data.applicant.address)}}
+                  {% endif %}
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+                   <a href="#">
+                      Change<span class="nhsuk-u-visually-hidden"> home address</span>
+                    </a>
+           
+                </dd>
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Correspondence address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {% if data.applicant.address_OHS %}
+                  {{address(data.applicant.address_OHS)}}  
+                {% else %}
+                  {{address(data.applicant.address)}}
+                {% endif %}
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> Correspondence address</span>
+                  </a>
+            
+              </div>
+            </dl>
+
+            <h3 class="nhsuk-heading-m">Contact details</h3>
+
+            <dl class="nhsuk-summary-list">
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data.applicant.email}}
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> email</span>
+                  </a>
+            
+              </div>
+            
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">
+                  Phone
+                </dt>
+                <dd class="nhsuk-summary-list__value">
+                  {{data.applicant.phone}}
+                </dd>
+
+                <dd class="nhsuk-summary-list__actions">
+          
+                  <a href="#">
+                    Change<span class="nhsuk-u-visually-hidden"> telephone</span>
+                  </a>
+            
+              </div>
+            </dl>
+
+
+
+          </div>
+        
+          <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="entitlements">
+        
+            <table role="table" class="nhsuk-table-responsive">
+              <thead role="rowgroup" class="nhsuk-table__head">
+                <tr role="row">
+                  <th role="columnheader" class="" scope="col">
+                    Entitlement
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Start date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    End date
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Main or<br>dependant
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Country
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    Status
+                  </th>
+                  <th role="columnheader" class="" scope="col">
+                    
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="nhsuk-table__body">
+
+
+                {% for entitlement in data.applicant.existingEntitlements %}
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span role="cell" class="nhsuk-table__cell"></span>{{entitlement.type}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>{{entitlement.startdate}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>{{entitlement.enddate}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>
+                    {% if entitlement.main %}Main
+                    {% elseif entitlement.dependant %} Dependant
+                    {% endif %}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>{{entitlement.country}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span><strong class="nhsuk-tag nhsuk-tag--yellow">{{entitlement.status}}
+                    </strong>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span><a href="#" >More info</a>
+                  </td>
+
+                </tr>
+                {% endfor %}
+
+                <tr role="row" class="nhsuk-table__row">
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span role="cell" class="nhsuk-table__cell"></span>S072
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>{{data.applicant.startdate}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>
+                    Main
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span>{{data.applicant.country}}
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span><strong class="nhsuk-tag nhsuk-tag--yellow">
+                      {% if data.applicant.pensionStartDate %}
+                        Issued - Sent                      
+                      {% else %}
+                        Evidence requested
+                      {% endif %}
+                    </strong>
+                  </td>
+                  <td role="cell" class="nhsuk-table__cell">
+                    <span class="nhsuk-table-responsive__heading"></span><a href="#" >More info</a>
+                  </td>
+
+                </tr>
+
+
+              </tbody>
+            </table>
+            <br>
+            <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="button">
+              Create new entitlement
+            </button>
+            {% if not data.applicant.pensionStartDate %}
+            <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" data-prevent-double-click="true" type="button">
+              Update pension details
+            </button>
+            {% endif %}
+          </div>
+        
+          <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="inactive"></div>
+        
+        </div>
+
+        <div class="nhsuk-form-group">
+            <button class="nhsuk-button nhsuk-button--secondary" data-module="nhsuk-button" type="button">
+            Exit record
+          </button>
+        </div>
+     
+      </form>
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

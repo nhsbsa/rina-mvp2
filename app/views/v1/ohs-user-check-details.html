@@ -1,0 +1,94 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Are the details of the user correct?</h1>
+
+      <form action="ohs-user-check-details" method="post">
+
+        <div class="nhsuk-form-group">
+          
+          <h2>User details</h2>
+  
+          <dl class="nhsuk-summary-list">
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Full name</dt>
+              <dd class="nhsuk-summary-list__value">Ali Roberts</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="#">Change<span class="nhsuk-u-visually-hidden"> full name</span></a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">16 May 1989</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="#">Change<span class="nhsuk-u-visually-hidden"> date of birth</span></a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">National insurance number</dt>
+              <dd class="nhsuk-summary-list__value">-</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="#">Change<span class="nhsuk-u-visually-hidden"> national insurance number</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">OHS reference number</dt>
+              <dd class="nhsuk-summary-list__value">230123456</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="#">Change<span class="nhsuk-u-visually-hidden"> national insurance number</span></a>
+              </dd>
+            </div>
+          
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+
+        <p>
+          <a href="#">Create a new user</a>
+        </p>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% call fieldset({
+    legend: {
+      "text": "",
+      "classes": "",
+      "isPageHeading": false
+    }
+  }) %}
+  
+  {{ input({
+    "label": {
+      "text": "Street (optional)"
+    },
+    id: "street",
+    name: "street",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Building name (optional)"
+    },
+    id: "Building",
+    name: "Building",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Town"
+    },
+    id: "Town",
+    name: "Town",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Post code (optional)"
+    },
+    id: "Forename of father",
+    name: "Forename of father",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  {{ input({
+    "label": {
+      "text": "Region (optional)"
+    },
+    id: "Region",
+    name: "Region",
+    classes: "nhsuk-input--width-20"
+  }) }}
+  
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="country-2">
+      Country
+    </label>
+        <div id="search-country-2"></div>
+  </div>
+
+<script>
+  accessibleAutocomplete({
+    autoselect: true,
+    element: document.querySelector('#search-country-2'),
+    id: 'country-2',
+    name: 'country-autocomplete',
+    source: countries,
+    defaultValue: '{{ data["country-autocomplete"] }}',
+    displayMenu: 'overlay',
+    minLength: 2,
+    tNoResults: function() {
+      return "Other"
+    }
+  });
+</script>
+  
+  {% endcall %}

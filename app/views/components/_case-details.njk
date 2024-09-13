@@ -1,0 +1,100 @@
+{% from 'common-components.html' import address %}
+{% macro casedetails(applicant) %}
+
+<h1 class="app-page-heading">
+        <span class="nhsuk-caption-l"> 
+          {{applicant.incomingSEDname}}
+        <span class="nhsuk-u-visually-hidden"> - </span>
+        </span>
+        Case details
+      </h1>  
+
+    
+
+      <dl class="nhsuk-summary-list">
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{applicant.firstname}} {{applicant.lastname}}
+        </dd>
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          RINA international case ID
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{applicant.rinaReference}}
+        </dd>     
+    
+      </div>
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{applicant.dob}}
+        </dd>        
+      </div>
+    
+    
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{address(applicant.address)}}
+        </dd>
+    
+      </div>
+    
+      {% if applicant.incomingSED == "S071" %}
+    <div class="nhsuk-summary-list__row">
+      <dt class="nhsuk-summary-list__key">
+      National Insurance number
+      </dt>
+      <dd class="nhsuk-summary-list__value">
+          {{applicant.NINO}}
+      </dd>
+      </div>
+
+      <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+        Start date of entitlement
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+          {{applicant.startdate}}
+        </dd>
+        </div>
+
+
+    {% endif %}
+    {% if applicant.incomingSED == "S044" %}
+          
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Treatment start date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{applicant.startdate}}
+    </dd>
+    </div>
+    
+    <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+    Treatment end date
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {{applicant.enddate}}
+    </dd>
+    </div>
+
+    
+    {% endif %}
+
+{% endmacro %}

@@ -1,0 +1,223 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+<div class="nhsuk-back-link nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-0">
+
+  <a class="nhsuk-back-link__link" href="ohs-case-details-view#entitlements">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back </a>
+</div>
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      {% set monthNames = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] %}
+      {% set dayNames = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'] %}
+
+
+      <h1>
+        Review details
+      </h1>
+      
+      <form action="ohs-case-check-answers" method="post">
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Personal details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">OHS reference number</dt>
+              <dd class="nhsuk-summary-list__value">230123456</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Full name</dt>
+              <dd class="nhsuk-summary-list__value">Ali Roberts</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">16 May 1989</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">National Insurance number</dt>
+              <dd class="nhsuk-summary-list__value">-</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+          
+          </dl>
+
+        </div>
+        
+
+        
+        <div class="nhsuk-form-group">
+
+          <h2>Eligibility details</h2>
+
+          <dl class="nhsuk-summary-list">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date request was received</dt>
+              <dd class="nhsuk-summary-list__value"><p>{{ dayNames[data['case-search-date-day'] -1]}}  {{ monthNames[data['case-search-date-month']  -1 ]}} {{ data['case-search-date-year'] }}</p></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-search">Change<span class="nhsuk-u-visually-hidden"> date request was received</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Type of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['ohs-case-entitlement'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-create">Change<span class="nhsuk-u-visually-hidden"> type of entitlement</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Who requested the PRC</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['ohs-case-entitlement-type'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-type">Change<span class="nhsuk-u-visually-hidden"> who requested the PRC</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">RINA international case ID</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-rina-id-number'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-add-rina-number">Change<span class="nhsuk-u-visually-hidden"> RINA case ID</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">PRC start date</dt>
+              <dd class="nhsuk-summary-list__value">{{ dayNames[data['case-prc-start-date-day'] -1]}} {{ monthNames[data['case-prc-start-date-month']  -1 ]}} {{ data['case-prc-start-date-year'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-dates">Change<span class="nhsuk-u-visually-hidden"> PRC start date</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">PRC end date</dt>
+              <dd class="nhsuk-summary-list__value">{{ dayNames[data['case-prc-end-date-day'] -1] }} {{ monthNames[data['case-prc-end-date-month']  -1 ]}} {{ data['case-prc-end-date-year'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-entitlement-dates">Change<span class="nhsuk-u-visually-hidden"> PRC end date</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Country of treatment</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-country'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> County of treatment</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Treatment facility name</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-name'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> treatment facility name</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Treatment facility email address</dt>
+              <dd class="nhsuk-summary-list__value">{{ data['case-prc-treatment-facility-email'] }}</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="ohs-case-facility-details">Change<span class="nhsuk-u-visually-hidden"> treatment facility email address</span></a>
+              </dd>
+            </div>
+            
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          
+          <h2>Contact details</h2>
+  
+          <dl class="nhsuk-summary-list">
+  
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Home address</dt>
+              <dd class="nhsuk-summary-list__value">12 Willow Road<br />Sunderland<br />SR5 6UT<br />United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Correspondence address</dt>
+              <dd class="nhsuk-summary-list__value">12 Willow Road<br />Sunderland<br />SR5 6UT<br />United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Email address</dt>
+              <dd class="nhsuk-summary-list__value">aliroberts89@email.com</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Phone</dt>
+              <dd class="nhsuk-summary-list__value">07787 123 123</dd>
+              <dd class="nhsuk-summary-list__actions"></dd>
+            </div>
+
+          </dl>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Accept and submit
+          </button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

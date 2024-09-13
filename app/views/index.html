@@ -1,0 +1,165 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+NHS.UK prototype kit
+{% endblock %}
+
+<!-- Edit the header -->
+<!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+{{ header({
+"service": {
+"name": "Prototypes for OHS RINA",
+"href": "/"
+}
+})
+}}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <!-- Change the page title here -->
+    <h1>
+      RINA
+      <span class="nhsuk-caption-xl nhsuk-caption--bottom">Prototypes</span>
+    </h1>
+
+    <!-- Add your content here -->
+    <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+    <p class="nhsuk-lede-text">
+      Prototypes and resources to assist with RINA design and user research.
+    </p>
+
+    <hr>
+
+    <!--Common approach-->
+
+    <h2>Common approach - v2 (latest)</h2>
+
+    <h3>SBUC5 Happy Paths</h3>
+    <ul class="nhsuk-list-s">
+      <li><a href="/v2-common-approach/applicant4">Applicant not in OHS, Negative S045</a></li>
+      <li><a href="/v2-common-approach/applicant5">Applicant is in OHS, Positive S045</a></li>
+    </ul>
+
+    <h3>SBUC5 Unhappy Paths</h3>
+    <ul class="nhsuk-list-s">
+      <li><a href="/v2-common-approach/applicant6">Applicant is in OHS, entitlement is 'pending check' on OHS (this may
+          not occur)</a>
+      </li>
+    </ul>
+
+
+    <!--Design guidance-->
+    <hr>
+    <h2>Design guidance</h2>
+    <p>
+      This leads you to the design guidance that we have used to create the SEDs within OHS-RINA
+    </p>
+    <ul class="nhsuk-list-s">
+      <li><a href="/guidance">Design guidance</a></li>
+    </ul>
+
+
+    <hr>
+
+    <!--Start of drop down-->
+    <details class="nhsuk-details nhsuk-expander">
+      <summary class="nhsuk-details__summary">
+        <span class="nhsuk-details__summary-text">
+          Other versions
+        </span>
+      </summary>
+
+      <div class="nhsuk-details__text">
+
+        <h2>Common approach - v1</h2>
+
+        <ul class="nhsuk-list-s">
+          <li><a href="/common-approach-v1/applicant4">SBUC5 - Happy Path - Applicant not in OHS</a></li>
+          <li><a href="/common-approach-v1/applicant5">SBUC5 - Happy Path - Applicant in OHS</a></li>
+          <li><a href="/common-approach-v1/applicant1">S1 - Happy Path - Addresses do not match</a></li>
+          <li><a href="/common-approach-v1/applicant2">S1 - Happy Path - Applicant not in OHS</a></li>
+          <li><a href="/common-approach-v1/applicant3">S1 - Happy Path - Missing NINO</a></li>
+        </ul>
+
+        <h3>SBUC1</h3>
+
+        <!--S1 happy path-->
+        <p class="nhsuk-u-font-weight-bold">S1 happy path - version 1</p>
+        <p>Three applicants as definied to support <a
+            href=https://miro.com/app/board/uXjVN8IEVL4=/?moveToWidget=3458764579630237401&cot=14">scenarios outlined
+            for user testing<a></a></p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/s1-path-v1/applicant1">Applicant 1</a></li>
+          <li><a href="/s1-path-v1/applicant2">Applicant 2</a></li>
+          <li><a href="/s1-path-v1/applicant3">Applicant 3</a></li>
+        </ul>
+
+
+        <h3>SBUC5</h3>
+        <p class="nhsuk-u-font-weight-bold">Iteration 5 - Happy path</p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/v5-happy-path/login-cas-sso">Happy Path - Version 5</a></li>
+          <li><a href="/v3-unhappy-path/p2-login-and-auth-2">Unhappy path - Version 4</a></li>
+        </ul>
+        <p class="nhsuk-u-font-weight-bold">Iteration 4 - Happy path + Unhappy path</p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/v4-happy-path/login-cas-sso">Happy path - Version 4</a></li>
+          <li><a href="/path-2-v2/p2-login-and-auth-2">Unhappy path - Version 3</a></li>
+        </ul>
+        <p class="nhsuk-u-font-weight-bold">Iteration 3 - Happy path + Unhappy path</p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/v3/login-cas-sso">Happy Path - Version 3</a></li>
+          <li><a href="/path-2-v1/p2-login-and-auth-2">Unhappy path 1 -Send H001 (leading to full unhappy path)</a></li>
+          <li><a href="/path-2-v1/unhappy-case-view-x009-start">Unhappy path 2 -Send X009</a></li>
+          <li><a href="/path-2-v1/unhappy-h002-start">Unhappy path 3a - Receive H002</a></li>
+          <li><a href="/path-2-v1/unhappy-case-view-archive-close">Unhappy path 3b - Close or archive case</a></li>
+        </ul>
+        <p class="nhsuk-u-font-weight-bold">Iteration 2 - Happy path</p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/v2/login-and-auth-3">Version 2</a></li>
+        </ul>
+        <p class="nhsuk-u-font-weight-bold">Iteration 1 - Happy path</p>
+        <ul class="nhsuk-list-s">
+          <li><a href="/v1/login-and-auth-3">Version 1</a></li>
+        </ul>
+        <h3>Other pages</h3>
+        <ul>
+          <li><a href="guidance/test-pages">Design Guidance Playground</a></li>
+          <li><a href="v1/ath-page-list">Version 1 - Pages by Athif</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <hr>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,238 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      {% if (data['case-search-null']) %}
+      <div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+        <h2 class="nhsuk-error-summary__title" id="error-summary-title">You didn't enter a search term</h2>
+        <div class="nhsuk-error-summary__body">
+          <p>Enter a RINA reference number or customer name and search again.</p>
+          <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+            <li><a href="#case-search-term">RINA reference number or search term</a></li>
+          </ul>
+        </div>
+      </div>
+      {% endif %}
+    
+      <h1>RINA cases</h1>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label nhsuk-u-margin-top-6 " for="case-search-term">
+            RINA reference number or customer name
+          </label>
+
+    <!--Start of dynamic table-->
+      <input type="text" class="nhsuk-input nhsuk-u-width-two-thirds" id="searchInput">
+      <h5 class="nhsuk-u-margin-bottom-2 nhsuk-u-margin-top-8">Showing <span id="count">10 </span> of 42 cases</h5>
+      <table class="nhsuk-table nhsuk-u-margin-bottom-3">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>RINA reference</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Assigned to</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>bae451po-ssw565sj-fqb573jx-sxl532ya</td> <!--Case ID-->
+            <td>Sarah</td> <!--First name-->
+            <td>Jones</td> <!--Last name-->
+            <td>garpl@nhsbsa.nhs.uk</td> <!--User-->
+            <td>Open</td> <!--Status-->
+          </tr>
+          <tr>
+            <td>fqb573jx-bae451po-ssw565sj-sxl532ya</td> <!--Case ID-->
+            <td>James</td> <!--First name-->
+            <td>Fowler</td> <!--Last name-->
+            <td>barty@nhsbsa.nhs.uk</td> <!--Email-->
+            <td>Open</td> <!--Status-->
+          </tr>
+          <tr>
+            <td><a href="#">ssw565sj-fqb573jx-bae451po-sxl532ya</a></td> <!--Case ID-->
+            <td>Caitlin</td> <!--First name-->
+            <td>Graham</td> <!--Last name-->
+            <td></td> <!--Email-->
+            <td>Medical</td> <!--Status-->
+          </tr>
+          <tr>
+            <td><a href="ohs-case-view-so44">sxl532ya-bae451po-ssw565sj-fqb573jx</a></td> <!--Case ID-->
+            <td>Ali</td> <!--First name-->
+            <td>Roberts</td> <!--Last name-->
+            <td></td> <!--Email-->
+            <td>Pending</td> <!--Status-->
+          </tr>
+          <tr>
+            <td><a href="#">bae451po-ssw565sj-fqb573jx-sxl532ya</a></td> <!--Case ID-->
+            <td>Robin</td> <!--First name-->
+            <td>Brown</td> <!--Last name-->
+            <td></td> <!--Email-->
+            <td>VIP</td> <!--Status-->
+          </tr>
+          <td><a href="#">owk565xf-erg514br-ndd156os-dfg262fc</a></td> <!--Case ID-->
+          <td>Leon</td> <!--First name-->
+          <td>Adams</td> <!--Last name-->
+          <td></td> <!--Email-->
+          <td>Pending</td> <!--Status-->
+        </tr>
+        <td><a href="#">erg514br-ndd156os-dfg262fc-owk565xf</a></td> <!--Case ID-->
+        <td>David</td> <!--First name-->
+        <td>Cunningham</td> <!--Last name-->
+        <td></td> <!--Email-->
+        <td>Pending</td> <!--Status-->
+      </tr>
+      <td><a href="#">dfg262fc-owk565xf-erg514br-ndd156os</a></td> <!--Case ID-->
+      <td>Lesley</td> <!--First name-->
+      <td>Peet</td> <!--Last name-->
+      <td></td> <!--Email-->
+      <td>Medical</td> <!--Status-->
+    </tr>
+    <td><a href="#">owk565xf-erg514br-ndd156os-dfg262fc</a></td> <!--Case ID-->
+    <td>Jessica</td> <!--First name-->
+    <td>Williams</td> <!--Last name-->
+    <td></td> <!--Email-->
+    <td>Pending</td> <!--Status-->
+  </tr>
+  <td><a href="#">dsf769sa-erg514br-ndd156os-ryt485zf</a></td> <!--Case ID-->
+  <td>Paul</td> <!--First name-->
+  <td>Savage</td> <!--Last name-->
+  <td></td> <!--Email-->
+  <td>Pending</td> <!--Status-->
+</tr>
+        </tbody>
+      </table>
+    </table>
+
+
+<script>
+  document.getElementById("searchInput").addEventListener("input", function () {
+    let input, filter, table, tr, td, i, txtValue, counter, count, pagination;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("dataTable");
+    tr = table.getElementsByTagName("tr");
+    count = document.getElementById("count");
+    counter = 0;
+    pagination = document.querySelector('.pagination'); // Select the pagination element
+
+    for (i = 0; i < tr.length; i++) {
+      let found = false;
+      for (let j = 0; j < tr[i].cells.length; j++) {
+        td = tr[i].cells[j];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            found = true;
+          }
+        }
+      }
+
+      if (found) {
+        tr[i].style.display = "";
+        counter = counter + 1;
+      } else {
+        tr[i].style.display = (i === 0) ? "" : "none"; // Keep the header visible
+      }
+    }
+
+    count.innerText = counter;
+
+    // Update pagination HTML based on the count
+    if (counter <= 9) {
+      pagination.innerHTML = `
+        <!-- New pagination structure for count below 10 -->
+        <a class="nhsuk-link govuk-pagination__link " href="#" rel="prev">
+          <svg class="nhsuk-pagination__icon govuk-pagination__icon--prev nhsuk-u-margin-right-2" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+          </svg>
+          <span class="nhsuk-pagination__link-title">Previous<span class="nhsuk-visually-hidden"> page</span></span>
+        </a>
+        <a class="active" href="#">1</a>
+        <a class="govuk-link govuk-pagination__link " href="#" rel="next">
+          <span class="govuk-pagination__link-title nhsuk-u-margin-right-2">Next<span class="govuk-visually-hidden"> page</span></span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v-2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg>
+        </a>
+      `;
+    } else {
+      pagination.innerHTML = `
+        <!-- Default pagination structure for count above 10 -->
+        <a class="nhsuk-link govuk-pagination__link " href="#" rel="prev">
+          <svg class="nhsuk-pagination__icon govuk-pagination__icon--prev nhsuk-u-margin-right-2" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+          </svg>
+          <span class="nhsuk-pagination__link-title">Previous<span class="nhsuk-visually-hidden"> page</span></span>
+        </a>
+        <a class="active" href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a class="govuk-link govuk-pagination__link " href="#" rel="next">
+          <span class="govuk-pagination__link-title nhsuk-u-margin-right-2">Next<span class="govuk-visually-hidden"> page</span></span>
+          <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v-2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg>
+        </a>
+      `;
+    }
+  });
+</script>
+
+
+<!--End of dynamic table-->
+
+
+<div class="pagination">
+    <a class="nhsuk-link govuk-pagination__link " href="#" rel="prev">
+      <svg class="nhsuk-pagination__icon govuk-pagination__icon--prev nhsuk-u-margin-right-2" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+      </svg>
+      <span class="nhsuk-pagination__link-title ">Previous<span class="nhsuk-visually-hidden"> page</span></span></a>
+  <a class="active" href="#">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a class="govuk-link govuk-pagination__link " href="#" rel="next"> <span class="govuk-pagination__link-title nhsuk-u-margin-right-2">Next<span class="govuk-visually-hidden"> page</span></span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+  </svg>
+</div>
+
+
+    </div>
+  </div>
+{% endblock %}
+

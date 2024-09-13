@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Stu page list</h1>
+
+<div>
+  <h2 class="nhsuk-body-l nhsuk-u-margin-bottom-2">SO44</h2>
+  <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+    <li><a href="so44-view-1">SO44 - Personal details</a></li>
+    <li><a href="so44-view-2">SO44 - Address</a></li>
+    <li><a href="so44-view-3">SO44 - Personal details</a></li>
+  </ul>
+</div>
+
+<div>
+  <h2 class="nhsuk-body-l nhsuk-u-margin-bottom-2">SO45</h2>
+  <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+    <li><a href="so45-view-1">SO45 - Personal details</a></li>
+    <li><a href="so45-view-2">SO45 - Address</a></li>
+    <li><a href="so45-view-3">SO45 - Personal details</a></li>
+  </ul>
+</div>
+
+
+<div>
+  <h2 class="nhsuk-body-l nhsuk-u-margin-bottom-2">Signing in</h2>
+  <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+    <li><a href="ohs-signin-option">OHS or OHS RINA</a></li>
+    <li><a href="login-and-auth-1">Microsoft Authenticator code - Single panel  </a></li>
+    <li><a href="login-and-auth-2">Microsoft Authenticator code - Double panel</a></li>
+    <li><a href="login-and-auth-3">Single sign on (SSO)</a></li>
+  </ul>
+</div>
+
+
+<div>
+  <h2 class="nhsuk-body-l nhsuk-u-margin-bottom-2">Case view</h2>
+  <ul class="nhsuk-list-s nhsuk-u-margin-bottom-6">
+    <li><a href="ohs-landing-page">Side bar and full width</a></li>
+    <li><a href="ohs-case-view">Tabbed</a></li>
+    <li><a href="ohs-case-view-alt">One page</a></li>
+  </ul>
+</div>
+
+    </div>
+  </div>
+{% endblock %}

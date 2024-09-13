@@ -1,0 +1,89 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+
+<section class="nhsuk-section">
+  <div class="nhsuk-width-container">
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+      <h1>Sign in to OHS</h1>
+
+      <form action="nhs-signin" method="post" >
+
+      <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="case-search-term">
+              Username
+                </label>
+              <input class="nhsuk-input nhsuk-u-width-three-quarters" id="case-search-term" name="case-search-term" type="text">
+            </div>
+
+                <div class="nhsuk-form-group">
+                  <label class="nhsuk-label" for="case-search-term">
+                    Password
+                  </label>
+                  <input class="nhsuk-input nhsuk-u-width-three-quarters" id="case-search-term" name="case-search-term" type="text">
+                </div>
+        
+                <div class="nhsuk-form-group">
+                  <button class="nhsuk-button nhsuk-u-margin-bottom-2" id="signin" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+                    Sign in
+                  </button>
+                </div>
+
+
+                <p class="nhsuk-u-font-size-19 nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">Or sign in with:</p>
+          
+                  <div class="nhsuk-form-group">
+                <div class="micro-container nhsuk-u-width-three-quarters nhsuk-u-margin-bottom-2">
+                  <a href="micro-signin-1" class="micro-button" id="micro">
+                    <img src="/images/microsoft_logo_564db913a7fa0ca42727161c6d031bef.svg" alt="Logo">
+                  </a>
+                </div>
+              
+              </form>
+          
+            </div>
+          </div>
+
+        </li>
+      
+
+
+{% endblock %}

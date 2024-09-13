@@ -1,0 +1,134 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        <span class="nhsuk-caption-xl">OHS reference number: 230123456</span>
+        What are the treatment facility details?
+      </h1>
+
+      <form action="ohs-case-facility-details" method="post">
+
+        <div class="nhsuk-form-group">
+
+          <div class="nhsuk-form-group ">
+            {{ select({
+              "id": "case-prc-treatment-facility-country",
+              "classes": "nhsuk-u-width-one-half",
+              "name": "case-prc-treatment-facility-country",
+              "label": {
+                "text": "Country of treatment"
+              },
+              "items": [
+              {
+                "value": "Netherlands",
+                "text": "Netherlands",
+                selected: data['case-prc-treatment-facility-country'] === 'Netherlands'
+              },          
+               {
+                "value": "Austria",
+                "text": "Austria",
+                selected: data['case-prc-treatment-facility-country'] === 'Austria'
+              },
+                {
+                  "value": "Belgium",
+                  "text": "Belgium",
+                  selected: data['case-prc-treatment-facility-country'] === 'Belgium'
+                },
+                {
+                  "value": "Croatia",
+                  "text": "Croatia",
+                  selected: data['case-prc-treatment-facility-country'] === 'Croatia'
+                },
+                {
+                  "value": "France",
+                  "text": "France",
+                  selected: data['case-prc-treatment-facility-country'] === 'France'
+                },
+                {
+                  "value": "Germany",
+                  "text": "Germany",
+                  selected: data['case-prc-treatment-facility-country'] === 'Germany'
+                },
+                {
+                  "value": "Italy",
+                  "text": "Italy",
+                  selected: data['case-prc-treatment-facility-country'] === 'Italy'
+                },
+
+                {
+                  "value": "Portugal",
+                  "text": "Portugal",
+                  selected: data['case-prc-treatment-facility-country'] === 'Portugal'
+                },
+                {
+                  "value": "Sweden",
+                  "text": "Sweden",
+                  selected: data['case-prc-treatment-facility-country'] === 'Sweden'
+                }
+              ]
+            }) }}
+          </select>
+      </div>
+
+    
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="case-prc-treatment-facility-name">
+              Treatment facility name
+            </label>
+            <input class="nhsuk-input" id="case-prc-treatment-facility-name" name="case-prc-treatment-facility-name" type="text" value="Member state">
+          </div>
+
+
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="case-prc-treatment-facility-email">
+              Treatment facility email address
+            </label>
+            <input class="nhsuk-input" id="case-prc-treatment-facility-email" name="case-prc-treatment-facility-email" type="text" value="">
+          </div>
+
+        </div>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  
+{% endblock %}

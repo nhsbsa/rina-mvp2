@@ -1,0 +1,9 @@
+<!--Macro for formatting addresses from javascript object-->
+<!-- Very simple renderer which puts each subsequent value on a newline-->  
+{% macro address(address) %}
+    {% for field, value in address %}
+        {% if value %}
+            {{value}}<br>
+    {% endif %}
+    {% endfor %}
+{% endmacro %}

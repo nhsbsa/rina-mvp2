@@ -1,0 +1,84 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>Overseas Healthcare Services</h1>
+
+      <form action="start-page" method="post">
+  
+        <p class="nhsuk-body-l">Provision of entitlements for people moving to or visiting any European Economic Area (EEA) country or Switzerland.</p>
+        
+        <p>The service enables you to provide entitlements that have been:</p>
+  
+        <ul>
+          <li>received via email, post or phone</li>
+          <li>requested by the member state</li>
+        </ul>
+  
+        <h2 class="nhsuk-heading-m">Before you start</h2>
+        
+        <p>You can only use this service if XXX.</p>
+        
+        <p>You will need YYY.</p>
+
+        <hr />
+        
+        <div class="nhsuk-form-group">
+
+          <h2 class="nhsuk-heading-m">How was the entitlement requested?</h2>
+
+          <div class="nhsuk-radios">
+      
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="entitlement-request-direct" name="entitlement-request" type="radio" value="direct">
+              <label class="nhsuk-label nhsuk-radios__label" for="entitlement-request-direct">Received directly by email, phone or post</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="entitlement-request-referral" name="entitlement-request" type="radio" value="referral">
+              <label class="nhsuk-label nhsuk-radios__label" for="entitlement-request-referral">Requested by a member state</label>
+            </div>
+      
+          </div>
+        </div>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Start now
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

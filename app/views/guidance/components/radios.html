@@ -1,0 +1,124 @@
+{% extends 'layout-guidance.html' %}
+
+{% block maincontent %}
+
+<h1 class="app-page-heading">
+    <span class="nhsuk-caption-l">
+        Components
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    </span>
+    Radios
+    <div>
+    </div>
+</h1>
+
+<p class="nhsuk-lede-text app-lede-text">For radio options use the NHS design system's
+  <a href="https://service-manual.nhs.uk/design-system/components/radios">radio</a> component.</p>
+
+<h2>Example</h2>
+
+<div class="nhsuk-form-group">
+
+  <p class="nhsuk-u-margin-bottom-1">Sex</p>
+
+  <div class="nhsuk-radios--inline">
+
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="so44-tbc-patient" name="so44-tbc" type="radio" value="male" checked data-aria-controls="conditional-contact">
+      <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-patient">Male</label>
+    </div>
+    
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="so44-tbc-someone" name="so44-tbc" type="radio" value="female">
+      <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-someone">Female</label>
+    </div>
+    
+    <div class="nhsuk-radios__item">
+      <input class="nhsuk-radios__input" id="so44-tbc-parent" name="so44-tbc" type="radio" value="unknown">
+      <label class="nhsuk-label nhsuk-radios__label" for="so44-tbc-parent">Unknown</label>
+    </div>
+
+  </div>
+</div>
+
+<p><a href="/guidance/h001-example">View component on an SED</a></p>
+<br>
+<br>
+
+<h3>Error state</h3>
+
+<div class="nhsuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
+  <h2 class="nhsuk-error-summary__title" id="error-summary-title">
+    There is a problem
+  </h2>
+  <div class="nhsuk-error-summary__body">
+    <ul class="nhsuk-list nhsuk-error-summary__list" role="list">
+      <li>
+        <a href="#">Select 1 option for sex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="nhsuk-form-group nhsuk-form-group--error">
+
+  <fieldset class="nhsuk-fieldset" aria-describedby="example-error-hint example-error-error">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h4>
+        Sex
+      </h4>
+    </legend>
+
+    <span class="nhsuk-error-message" id="example-error-error">
+      <span class="nhsuk-u-visually-hidden">Error:</span> Select 1 option for sex
+    </span>
+
+    <div class="nhsuk-radios">
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-error-1" name="example-error" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-error-1">
+          Male
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-error-2" name="example-error" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-error-2">
+          Female
+        </label>
+      </div>
+
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-error-2" name="example-error" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-error-2">
+          Unknown
+        </label>
+      </div>
+
+    </div>
+  </fieldset>
+</div>
+
+<hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+<h2>SED implementation guidance</h2>
+
+<p>
+  We recommend following the <a href="https://service-manual.nhs.uk/design-system/components/radios">NHS design system</a> for this component. Below are additional points to note when implementing it as part of dynamic SEDs.
+</p>
+
+<h3>Radio button layout</h3>
+
+<p>
+  <strong class="nhsuk-tag nhsuk-tag--red">TO DO</strong> UCD team to decide whether radios are by default horizontal, 
+  vertical or dynamic based on number of options and length of label.
+</p>
+
+<h3>Do not pre-select radio options</h3>
+
+<p>
+  Do not pre-select radio options in situations where a user is manually entering the details into an SED.
+</p>
+
+
+{% endblock %}

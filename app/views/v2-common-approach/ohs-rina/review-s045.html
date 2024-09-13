@@ -1,0 +1,329 @@
+<!-- Set the S045 date first -->
+<!-- Data is organised into sections at a top level heading e.g. Person, Address and then subsections underneath those -->
+
+{% set S045 = [
+
+{
+section: {
+title: "Person",
+subsections: [
+{
+title: "Person identification",
+headinglevel: 3,
+questions: [
+{
+question: "Family name(s)",
+default: data.applicant.lastname
+},
+{
+question: "Forename(s)",
+default: data.applicant.firstname
+},
+{
+question: "Date of birth",
+default: data.applicant.dob
+},
+{
+question: "Sex",
+default: data.applicant.sex
+},
+{
+question: "Family name(s) at birth",
+default: data.applicant.lastname
+},
+{
+question: "Forename(s) at birth",
+default: data.applicant.firstname
+}]
+},
+{
+title: "PIN of the person in each institution ",
+headinglevel: 3
+},
+{
+title: "Personal Identification Number(s)",
+headinglevel: 4,
+questions: [
+{
+question: "Country",
+default: data.applicant.address.country
+},
+{
+question: "Personal identification number (PIN)",
+default: data.applicant.NINO
+},
+{
+question: "Sector"
+},
+{
+question: "Institution ID",
+default: "UK: UK033"
+
+},
+{
+question: "Institution name",
+default: "Department of Health and Social Care"
+
+}]
+},
+{
+title: "If PIN not provided for every institution, please provide",
+headinglevel: 3
+},
+{
+title: "Place of birth",
+headinglevel: 4,
+questions: [
+{
+question: "Town",
+default: data.applicant.address.town
+},
+{
+question: "Region",
+default: data.applicant.address.region
+},
+{
+question: "Country",
+default: data.applicant.address.country
+},
+{
+question: "Father's family name at birth"
+},
+{
+question: "Forename of father"
+},
+{
+question: "Mother's family name at birth"
+},
+{
+question: "Forename of mother"
+}
+]
+},
+{
+title: "Additional information on the person",
+headinglevel: 2,
+questions: [
+{
+question: "Nationality"
+}
+]
+}
+]
+}
+},
+
+{
+section: {
+title: "Address (of the person for whom an entitlement document is issued) ",
+subsections: [
+{
+questions: [
+{
+question: "Street",
+default: data.applicant.address.street
+},
+{
+question: "Building name",
+default: data.applicant.address.buildingname
+},
+{
+question: "Town",
+default: data.applicant.address.town
+},
+{
+question: "Postal code",
+default: data.applicant.address.postalcode
+},
+{
+question: "Region",
+default: data.applicant.address.region
+},
+{
+question: "Country",
+default: data.applicant.address.country
+}
+]
+}
+]
+}
+}
+]
+%}
+
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+
+{% block beforeContent %}
+
+{{ backLink({
+"href": "case-details",
+"text": "Back to case details",
+"classes": "nhsuk-u-padding-left-5 nhsuk-u-padding-top-3"
+}) }}
+
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-full">
+
+
+    <h1 class="app-page-heading">
+      <span class="nhsuk-caption-l">
+        Entitlement document - temporary stay
+        <span class="nhsuk-u-visually-hidden"> - </span>
+      </span>
+      S045
+      <div>
+      </div>
+    </h1>
+
+
+    {% set entitlementType = "S045" %}
+
+    {% for section in S045 %}
+
+    <!-- Create a new expanding pane for each section -->
+    <details class="nhsuk-details">
+      <summary class="nhsuk-details__summary-accordion">
+        <h2>{{section.section.title}}</h2>
+        <span class="nhsuk-details-summary-accordion nhsuk-details__summary-text-accordion">Show</span>
+      </summary>
+
+      <div class="nhsuk-details__text-accordion">
+
+        <!-- For each subsection set heading based on heading level -->
+        {% for subsection in section.section.subsections %}
+
+        {% if subsection.headinglevel==3 %}
+        <h3>{{subsection.title}}</h3>
+        {% endif %}
+
+        {% if section.section.headinglevel==4 %}
+        <h4>{{subsection.title}}</h4>
+        {% endif %}
+
+        <!-- If a subsection has questions, iterate over questions to populate summary list -->
+        {% if not subsection.questions|length==0 %}
+        <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
+
+          {% for question in subsection.questions %}
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">{{question.question}}</dt>
+            <dd class="nhsuk-summary-list__value">
+              <p>{{question.default}}</p>
+            </dd>
+          </div>
+          {% endfor %}
+
+        </dl>
+        {% endif %}
+
+        {% endfor %}
+
+        <!-- Closing details pane and adding a section break at the end of the section -->
+
+      </div>
+    </details>
+    <hr class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible">
+
+    {% endfor %}
+
+    <!-- ******************************************************** -->
+    <!-- EDITABLE SECTION FOR INFO ON ENTITLEMENT/NON ENTITLEMENT -->
+    <!-- ******************************************************** -->
+
+    <form action="review-s045" method="post">
+
+      <!-- expanding panel for info on entitlement/non entitlement, open by default-->
+      <details class="nhsuk-details" open="true">
+        <summary class="nhsuk-details__summary-accordion">
+          <!-- Set title based on issued/rejected status of entitlement-->
+          {% if data.applicant.responseSED.status == "issued" %}
+          <h2 class="nhsuk-u-margin-bottom-2">Info on entitlement</h2>
+          {% elif data.applicant.responseSED.status == "rejected" %}
+          <h2 class="nhsuk-u-margin-bottom-2">Info on non-entitlement</h2>
+          {% endif %}
+          <span class="nhsuk-details-summary-accordion nhsuk-details__summary-text-accordion">Show</span>
+        </summary>
+
+        <div class="nhsuk-details__text-accordion">
+          <!-- content in panel for info on entitlement-->
+          {% if data.applicant.responseSED.status == "issued" %}
+          <dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Start date of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.startdate}}</dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">End date of entitlement</dt>
+              <dd class="nhsuk-summary-list__value">{{data.applicant.enddate}}</dd>
+            </div>
+      </details>
+      </dl>
+
+      <!-- content in panel for info on non-entitlement-->
+      {% elif data.applicant.responseSED.status == "rejected" %}
+
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset">
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes" checked="true">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+                Not entitled to sickness benefits from this member state during the requested period
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                Unknown in this situation
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+                Other reason
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="nhsuk-form-group">
+        <label class="nhsuk-label" for="example">
+          Please fill in the following if "Info on non-entitlement" = "Other reason" :
+        </label>
+        <div class="nhsuk-hint" id="example-hint">
+          Reason
+        </div>
+        <textarea class="nhsuk-textarea" id="example" name="example" rows="5"
+          aria-describedby="example-hint">We are unable to issue a Provisional Replacement Certificate for the patient. </textarea>
+        {% endif %}
+      </div>
+  </div>
+
+  <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+    Send to member state
+  </button>
+
+</div>
+</details>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

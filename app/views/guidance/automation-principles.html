@@ -1,0 +1,40 @@
+app/views/guidance/content-guidance.html{% extends 'layout-guidance.html' %}
+
+{% block maincontent %}
+
+<!-- This is the page heading -->
+<h1 class="app-page-heading">
+    <span class="nhsuk-caption-l">
+        Principles
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    </span>
+    Automation
+    <div>
+    </div>
+  </h1>
+
+  <p class="nhsuk-lede-text app-lede-text">
+    The work to integrate OHS RINA and OHS aims to reduce the amount of manual entry required by BSA agents to complete SEDs.
+  </p>
+  <p>
+    As part of the ongoing UCD work we are looking at ways to present auto-populated data, only where necessary, making
+    this easy for the user to review, and if appropriate change. We are looking to avoid making users 
+    step through auto-populated forms in their entirety.
+  </p>
+  <p>
+    This guidance aims to help the development team create dynamic versions of the SEDs in a way
+    that is accessible and consistent with the NHS design system.
+  </p>
+  <p>
+    However, it should be noted that in the cases we have so far explored as part of SBUC5 and SBUC1 - we do not expect users to be creating these 
+    forms from scratch, or working through them in their entirety.
+  </p>
+
+  <p>For example, this is the current design thinking around <a href="../s1-path-v1/review-s072">how a user will create an S072</a> as part of the SBUC_1 workflow.</p>
+
+  <p>
+    <strong class="nhsuk-tag nhsuk-tag--yellow">For discussion</strong> How might we create dynamic SEDs which only promote to the user the fields that need review or manual population?
+    To be informed by the outputs of S1 testing.
+  </p>
+
+{% endblock %}

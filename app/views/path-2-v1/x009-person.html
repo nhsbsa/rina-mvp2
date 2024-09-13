@@ -1,0 +1,130 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block header %}
+  {{ header({
+    "service": {
+        "name": "Overseas Healthcare Services RINA",
+        "href": "/"
+      },
+      "showNav": "false",
+      "showSearch": "false"
+    })
+  }}
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <span class="nhsuk-caption-l">X009: Reminder</span>
+      <h1>Person</h1>
+
+      <form action="x009-person" method="post">
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="x009-last-name">
+            Last name
+          </label>
+          <input class="nhsuk-input" id="x009-last-name" name="x009-last-name" type="text" value="{{ data['x009-last-name'] if data['x009-last-name'] else "Brown" }}">
+        </div>
+
+        
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="x009-first-name">First name</label>
+          <input class="nhsuk-input" id="x009-first-name" name="x009-first-name" type="text" value="{{ data['x009-first-name'] if data['x009-first-name'] else "Robin" }}">
+        </div>
+        
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+          
+          <div class="nhsuk-form-group nhsuk-u-margin-bottom-2">
+            <label class="nhsuk-label" for="so44-tbc">Date of birth</label>
+          </div>
+
+          <div class="nhsuk-date-input" id="so44-tbc">
+
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="x009-day">Day</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="x009-day" name="x009-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['x009-day'] if data['x009-day'] else "12"}}">
+              </div>
+            </div>
+  
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="x009-month">Month</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="x009-month" name="x009-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['x009-month'] if data['x009-month'] else "02"}}">
+              </div>
+            </div>
+  
+            <div class="nhsuk-date-input__item">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label nhsuk-date-input__label" for="x009-year">Year</label>
+                <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="x009-year" name="x009-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['x009-year'] if data['x009-year'] else "1997"}}">
+              </div>
+            </div>
+  
+          </div>
+
+        </fieldset>
+
+        <div class="nhsuk-form-group">
+
+          <label class="nhsuk-label nhsuk-u-margin-bottom-2" for="so44-tbc">Sex</label>
+
+          <div class="nhsuk-radios--inline">
+      
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-sex-male" name="x009-sex" type="radio" value="Male" {{ checked("x099-sex", "Male") }} checked data-aria-controls="conditional-contact">
+              <label class="nhsuk-label nhsuk-radios__label" for="x009-sex-male">Male</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-sex-female" name="x009-sex" type="radio" value="Female" {{ checked("x099-sex", "Female") }} >
+              <label class="nhsuk-label nhsuk-radios__label" for="x009-sex-female">Female</label>
+            </div>
+            
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="x009-sex-unknown" name="x009-sex" type="radio" value="Unknown"  {{ checked("x099-sex", "Unknown") }}>
+              <label class="nhsuk-label nhsuk-radios__label" for="x009-sex-unknown">Unknown</label>
+            </div>
+      
+          </div>
+        </div>
+
+
+       
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Save and continue
+          </button>
+        </div>
+        
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

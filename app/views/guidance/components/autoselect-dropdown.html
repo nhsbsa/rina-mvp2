@@ -1,0 +1,75 @@
+{% extends 'layout-guidance.html' %}
+
+{% block maincontent %}
+
+<h1 class="app-page-heading">
+    <span class="nhsuk-caption-l">
+        Components
+    <span class="nhsuk-u-visually-hidden"> - </span>
+    </span>
+    Autoselect dropdown <br><strong class="nhsuk-tag nhsuk-tag--yellow">Work in progress</strong>
+    <div>
+    </div>
+</h1>
+
+<p class="nhsuk-lede-text app-lede-text">The autoselect dropdown populates a read-only field based on the selection of another.</p>
+
+<h2>Example</h2>
+<div><strong class="nhsuk-tag nhsuk-tag--yellow">Work in progress</strong></div><br>
+
+{{ input({
+  "label": {
+    "text": "Institution ID"
+  },
+  "id": "example",
+  "name": "example",
+  "attributes": {
+    readonly: true
+  },
+  "value" : "CH:00134",
+  "classes": "nhsuk-input--width-5"
+
+}) }}
+
+{{ select({
+  "id": "select-1",
+  "name": "select-1",
+  "label": {
+    "text": "Institution name"
+  },
+  "items": [
+    {
+      "value": 1,
+      "text": "ACC_Einsiedler Krankenkasse"
+    }
+  ]
+}) }}
+
+<br>
+
+<h2>SED implementation guidance</h2>
+
+<p>This pattern is specific to EESSI RINA and involves an:
+  <ul>
+    <li>autocompletion dropdown</li>
+    <li>autopopulated text input</li>
+    <li>advanced search feature</li>
+  </ul>
+</p>
+
+<p>
+Given we are considering automation of these forms in their entirety it is important to understand in what contexts users would be interacting with these fields, if at all, before designing a new pattern.
+</p>
+
+<p>For the purposes of creating PoC dynamic SEDs, we recommend:
+
+  <ul>
+    <li>implementing the autocomplete textbox for the selection field</li>
+    <li>making the autopopulated text input <code>readonly</code></li>
+  </ul>
+ </p>
+
+ <p>We will provide styling as part of completing this guidance for readonly fields. We will also review the full functionality for this pattern as part of an applicable user journey in future UCD work.</p>
+
+
+{% endblock %}

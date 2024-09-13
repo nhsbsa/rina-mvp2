@@ -1,0 +1,515 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - change the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+  NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a breadcrumb -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-back-link">
+        <a class="nhsuk-back-link__link" href="p2-h001-create-7-alt">
+          <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+            <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+          </svg>
+          Go back</a>
+      </div>
+
+      <span class="nhsuk-caption-l">H001: Notification/request for information</span>
+      <h1>Check your answers</h1>
+
+      <form action="p2-h001-sent" method="post">
+          
+          <h2 class="nhsuk-heading-m">Personal details</h2>
+  
+          <dl class="nhsuk-summary-list">
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Last name</dt>
+              <dd class="nhsuk-summary-list__value">Brown</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> family name</span></a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">First name</dt>
+              <dd class="nhsuk-summary-list__value">Robin</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> forename</span></a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of birth</dt>
+              <dd class="nhsuk-summary-list__value">12 February 1997</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> date of Birth</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Sex</dt>
+              <dd class="nhsuk-summary-list__value">Male</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> sex</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Last name at birth</dt>
+              <dd class="nhsuk-summary-list__value">Brown</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> family name birth</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">First name at birth</dt>
+              <dd class="nhsuk-summary-list__value">Robin</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+              </dd>
+            </div>
+            </dl>
+
+            <h3 class="nhs-heading-m">Personal identification numbers (PINs) for institutions</h3>
+<!--1 PART 2-->
+            
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Country of treatment</dt>
+              <dd class="nhsuk-summary-list__value">Spain</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> country of treatment</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Country PIN</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> personal identification number</span></a>
+              </dd>
+            </div>
+          
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Sector</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> sector</span></a>
+              </dd>
+            </div>
+            </dl>
+
+            <h3 class="nhsuk-heading-m">Institution</h3>
+
+            <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Institution PIN</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> id</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Institution name</dt>
+              <dd class="nhsuk-summary-list__value">Member state</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> name</span></a>
+              </dd>
+            </div>
+            </dl>
+
+            <h3 class="nhsuk-heading-m">If PINs are not provided for every institution, please provide details below.</h3>
+            <h4 class="nhsuk-heading-s">Place of birth</h4>
+  
+<!--1 PART 3-->
+<dl class="nhsuk-summary-list">           
+<div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Town</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Region</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Country</dt>
+              <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Father's last name at birth</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Father's first name</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Mother's last name at birth</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Mother's first name</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+            </dl>
+
+            <h3 class="nhsuk-heading-m">Additional information on the person</h3>
+          
+<!--1 PART 4-->
+<dl class="nhsuk-summary-list">
+           <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Nationality</dt>
+              <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Status of person</dt>
+              <dd class="nhsuk-summary-list__value">Employed person</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Details of other</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-1">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+          </dl>
+          
+<!--Part 2-->
+          <h2 class="nhsuk-heading-m">Type of request</h2>
+
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">What request is for</dt>
+              <dd class="nhsuk-summary-list__value">Request for address</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-2">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Type of address request</dt>
+                <dd class="nhsuk-summary-list__value"></dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+                </dd>
+              </div>
+          </dl>
+       
+
+ <!--Part 3-->
+          <h2 class="nhsuk-heading-m">Personal details request</h2>
+
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Type of personal information requested</dt>
+              <dd class="nhsuk-summary-list__value">None</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+          </dl>
+
+ <!--Part 4-->
+          <h2 class="nhsuk-heading-m">Sector PIN for receiving institution</h2>
+
+          <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Sector PIN for receiving institution
+              </dt>
+              <dd class="nhsuk-summary-list__value">None</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Other</dt>
+              <dd class="nhsuk-summary-list__value"></dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+          </dl>
+
+  <!--Part 5-->
+           <h2 class="nhsuk-heading-m">Request for information</h2>
+
+           <dl class="nhsuk-summary-list">
+            <div class="nhsuk-summary-list__row">
+              <dt class="nhsuk-summary-list__key">Date of request</dt>
+              <dd class="nhsuk-summary-list__value">12 January 2024</dd>
+              <dd class="nhsuk-summary-list__actions">
+                <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+              </dd>
+            </div>
+            </dl>
+
+            <h4 class="nhsuk-heading-m">What has been provided </h4>
+
+            <dl class="nhsuk-summary-list">
+              <div class="nhsuk-summary-list__row">
+                <dt class="nhsuk-summary-list__key">Documents provided</dt>
+                <dd class="nhsuk-summary-list__value"></dd>
+                <dd class="nhsuk-summary-list__actions">
+                  <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+                </dd>
+              </div>
+
+                <div class="nhsuk-summary-list__row">
+                  <dt class="nhsuk-summary-list__key">Information provided</dt>
+                  <dd class="nhsuk-summary-list__value"></dd>
+                  <dd class="nhsuk-summary-list__actions">
+                    <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+                  </dd>
+                </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">SEDs provided</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-3-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+                    </dd>
+                  </div>
+              </dl>
+
+        <!--Part 6-->
+                <h2 class="nhsuk-heading-m">Notification of change in circumstances</h2>
+
+                <dl class="nhsuk-summary-list">
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Last name</dt>
+                    <dd class="nhsuk-summary-list__value">Brown</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> family name</span></a>
+                    </dd>
+                  </div>
+                
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">First name</dt>
+                    <dd class="nhsuk-summary-list__value">Robin</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename</span></a>
+                    </dd>
+                  </div>
+                
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Date of birth</dt>
+                    <dd class="nhsuk-summary-list__value">12 February 1997</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> date of Birth</span></a>
+                    </dd>
+                  </div>
+      
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Sex</dt>
+                    <dd class="nhsuk-summary-list__value">Male</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> sex</span></a>
+                    </dd>
+                  </div>
+      
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Last name at birth</dt>
+                    <dd class="nhsuk-summary-list__value">Brown</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> family name birth</span></a>
+                    </dd>
+                  </div>
+      
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">First name at birth</dt>
+                    <dd class="nhsuk-summary-list__value">Robin</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Place of birth</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Father's last name at birth</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Father's first name at birth</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Mother's last name at birth</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Mother's first name at birth</dt>
+                    <dd class="nhsuk-summary-list__value">-</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Previous last name</dt>
+                    <dd class="nhsuk-summary-list__value">None</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Previous first name</dt>
+                    <dd class="nhsuk-summary-list__value">None</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Nationality</dt>
+                    <dd class="nhsuk-summary-list__value">United Kingdom</dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+
+                  <div class="nhsuk-summary-list__row">
+                    <dt class="nhsuk-summary-list__key">Nationality: other</dt>
+                    <dd class="nhsuk-summary-list__value"></dd>
+                    <dd class="nhsuk-summary-list__actions">
+                      <a href="p2-h001-create-6">Change<span class="nhsuk-u-visually-hidden"> forename birth</span></a>
+                    </dd>
+                  </div>
+                </dl>
+
+        <!--Part 7-->
+        <h2 class="nhsuk-heading-m">Additional information</h2>
+
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Notification or request</dt>
+            <dd class="nhsuk-summary-list__value">No additional request</dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="p2-h001-create-7-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+            </dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Additional information</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="p2-h001-create-7-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <!--Part 8-->
+        <h2 class="nhsuk-heading-m">Attached documents</h2>
+
+        <dl class="nhsuk-summary-list">
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Predefined documents</dt>
+            <dd class="nhsuk-summary-list__value">None</dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="p2-h001-create-7-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+            </dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">Uploaded documents</dt>
+            <dd class="nhsuk-summary-list__value"></dd>
+            <dd class="nhsuk-summary-list__actions">
+              <a href="p2-h001-create-7-alt">Change<span class="nhsuk-u-visually-hidden"> town</span></a>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="nhsuk-form-group">
+          <button class="nhsuk-button" data-module="nhsuk-button" data-prevent-double-click="true" type="submit">
+            Submit
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

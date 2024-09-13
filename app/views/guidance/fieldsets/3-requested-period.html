@@ -1,0 +1,63 @@
+{% call fieldset({
+    legend: {
+      "text": "",
+      "classes": "",
+      "isPageHeading": false
+    }
+  }) %}
+  
+  {{ dateInput({
+    "id": "Start date",
+    "namePrefix": "Start date",
+    "fieldset": {
+      "legend": {
+        "text": "Start date",
+        "classes": "nhsuk-label",
+        "isPageHeading": false
+      }
+    },
+    "items": [
+      {
+        "name": "day",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "month",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "year",
+        "classes": "nhsuk-input--width-4"
+      }
+    ]
+  }) }}
+  
+  
+  {{ dateInput({
+    "id": "End date",
+    "namePrefix": "End date",
+    "fieldset": {
+      "legend": {
+        "text": "End date",
+        "classes": "nhsuk-label",
+        "isPageHeading": false
+      }
+    },
+    "items": [
+      {
+        "name": "day",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "month",
+        "classes": "nhsuk-input--width-2"
+      },
+      {
+        "name": "year",
+        "classes": "nhsuk-input--width-4"
+      }
+    ]
+  }) }}
+  
+  
+  {% endcall %}

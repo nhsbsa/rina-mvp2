@@ -1,0 +1,67 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layout-guidance.html' %}
+{% block maincontent %}
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full app-component-reading-width">
+      
+      <div class="nhsuk-width-container">
+
+          <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-full">
+                <div>
+                </div>
+
+                <h1 class="app-page-heading">
+                  <span class="nhsuk-caption-l">
+                      Example SEDs
+                  <span class="nhsuk-u-visually-hidden"> - </span>
+                  </span>
+                  S044
+                  <div>
+              </h1>
+
+
+              <p>This is an example SED created using the SED design guidance.
+              </p>
+                  
+              <p>This example is a work in progress. It has not been evaluated as part of an end-to-end user journey 
+                where automation may be used to reduce the amount of manual entry required by users.
+              </p>
+
+              <p>We have provided working examples of some components that do not exist in the NHS design system, 
+                but these may change based on future user testing.
+              </p>
+
+                <p>
+                  The components that are still work in progress are:
+                </p>
+              <ul class="nhsuk-list-s">
+                 <li>autocomplete textbox</li>
+                 <li>autoselect dropdown</li>
+                 <li>multiselect dropdown</li>
+              </ul>
+
+              <p>
+                The following features have not been implemented in this example:
+              </p>
+            <ul class="nhsuk-list-s">
+              <li>error validation</li>
+              <li>adding new fieldsets</li>
+              <li>autocomplete textbox behaviour</li>
+            </ul>
+
+              <a class="nhsuk-button" href="/guidance/example-s044/s044-example" role="button" draggable="false">Continue</a>
+            
+            </div>
+          </div>
+      
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

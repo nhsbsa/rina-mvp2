@@ -1,0 +1,49 @@
+// ==========================================================================
+// COMPONENTS / #SUB-HEADER
+// ==========================================================================
+
+// Custom secondary sub-header for more application style tool
+// Used in OHS RINA context to house case summary information and menu controls
+
+.custom-sub-header {
+    background-color: $color_nhsuk-white;
+    border-bottom: 1px solid $nhsuk-border-color;
+    padding: 0;
+}
+
+.custom-sub-header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 16px;
+}
+
+.custom-sub-header__container-metadata {
+    display: inline;
+}
+
+.custom-sub-header__container-metadata>dt {
+    display: inline;
+    font-weight: 600;
+}
+
+.custom-sub-header__container-metadata>dd {
+    display: inline;
+    margin-left: 2px;
+}
+
+.custom-sub-header__action-link {
+    color: $color_nhsuk-blue;
+    display: flex;
+    align-items: center;
+}
+
+.custom-sub-header__action-link:hover {
+    color: $color_nhsuk-blue;
+}
+
+.custom-sub-header__action-link>.nhsuk-icon {
+    width: 24px;
+    height: 24px;
+}
