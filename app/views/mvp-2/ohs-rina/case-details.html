@@ -1,0 +1,539 @@
+<!-- Extends the layout from /views/layout.html -->
+
+
+<div class="custom-sub-header">
+
+  <div class="custom-sub-header__container">
+
+    <div>
+      <nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
+        <div class="nhsuk-width-container">
+          <ol class="nhsuk-breadcrumb__list">
+            <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Level one</a></li>
+            <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Level two</a></li>
+      
+            <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="#">Level three</a></li>
+      
+          </ol>
+          <p class="nhsuk-breadcrumb__back">
+            <a class="nhsuk-breadcrumb__backlink" href="#">
+              <span class="nhsuk-u-visually-hidden">Back to &nbsp;</span>
+              Level three
+            </a>
+          </p>
+        </div>
+      </nav>
+    </div>
+
+
+    <div>
+      <ul class="nhsuk-header__navigation-list">
+
+        {% if data.applicant.caseStatus == 'open' %}
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link custom-sub-header__action-link">
+            Create document
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              aria-hidden="true" height="24" width="24" style="transform: rotate(90deg);">
+              <path style="fill:#005eb8;"
+                d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z">
+              </path>
+            </svg>
+          </a>
+        </li>
+        {% endif %}
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link custom-sub-header__action-link">
+            Case actions
+            <svg class="nhsuk-icon nhsuk-icon__chevron-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              aria-hidden="true" height="24" width="24" style="transform: rotate(90deg);">
+              <path style="fill:#005eb8;"
+                d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z">
+              </path>
+            </svg>
+          </a>
+
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
+
+</div>
+
+
+</div>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="app-pane">
+
+  <!--***********************************************-->
+  <!--                   TIMELINE                    -->
+  <!--***********************************************-->
+
+  <div class="app-pane__side-bar app-pane-fixed__side-bar" style="position: sticky;
+    max-height: 100vh;
+    overflow: auto;
+    top: 0px;">
+    <h2>Timeline</h2>
+
+    <div class="nhsuk-timeline" id="timeline">
+
+      <ol class="nhsuk-timeline__events">
+
+
+        {% if data.applicant.responseSED.sent %}
+        <li class="nhsuk-timeline__events--entry">
+
+          <div class="nhsuk-timeline__header">
+            <!-- <img src="../../images/flags/uk.png" alt="UK flag" width="32" height="32"> -->
+            <div class="flag" role="presentation" style="background-image: url('../../images/flags/uk.png')"></div>
+            <h3 class="nhsuk-timeline__title"><a href="view-s045">{{data.applicant.responseSED.type}}</a>
+              <span class="nhsuk-timeline__byline">sent by <strong>clangley</strong></span>
+            </h3>
+
+          </div>
+          <div class="nhsuk-timeline__date">
+            <time>30 January 2024 at 10.15am</time>
+          </div>
+
+          <p>
+          <div class="icon" role="presentation">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#007f3b">
+              <path
+                d="M638-80 468-250l56-56 114 114 226-226 56 56L638-80ZM480-520l320-200H160l320 200Zm0 80L160-640v400h206l80 80H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v174l-80 80v-174L480-440Zm0 0Zm0-80Zm0 80Z" />
+              <title>received by member state</title>
+            </svg>
+          </div>
+          Received by member state</p>
+
+          <ul class="nhsuk-list nhsuk-body-s">
+
+            <li>
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    Actions (2)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <ul class="nhsuk-list">
+                    <li><a href=""><a>Action 1</a></li>
+                    <li><a href="">Action 2</a></li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </li>
+        {% endif %}
+
+
+
+        <!-- X009 -->
+        {% if data.applicant.X009 %}
+        <li class="nhsuk-timeline__events--entry">
+
+          <div class="nhsuk-timeline__header">
+            <!-- <img src="../../images/flags/uk.png" alt="UK flag" width="32" height="32"> -->
+            <div class="flag" role="presentation" style="background-image: url('../../images/flags/uk.png')"></div>
+            <h3 class="nhsuk-timeline__title"><a href="view-X009">X009</a>
+              <span class="nhsuk-timeline__byline">sent by <strong>clangley</strong></span>
+            </h3>
+
+          </div>
+          <div class="nhsuk-timeline__date">
+            <time>2 March 2024 at 10.15am</time>
+          </div>
+
+
+          <p class="nhsuk-u-margin-bottom-0 nhs">
+            <span class="icon" role="presentation">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#007f3b">
+                <path
+                  d="M638-80 468-250l56-56 114 114 226-226 56 56L638-80ZM480-520l320-200H160l320 200Zm0 80L160-640v400h206l80 80H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v174l-80 80v-174L480-440Zm0 0Zm0-80Zm0 80Z" />
+              </svg>
+            </span> Received by member state
+          </p>
+          <p class="nhsuk-u-margin-bottom-4" style="padding-left: 28px; margin-top: -4px"><strong>Sent 30 days
+              ago</strong></p>
+
+          <button class="nhsuk-button">Send reminder</button>
+
+        </li>
+
+
+        <!-- H001 -->
+        <li class="nhsuk-timeline__events--entry">
+
+          <div class="nhsuk-timeline__header">
+            <!-- <img src="../../images/flags/uk.png" alt="UK flag" width="32" height="32"> -->
+            <div class="flag" role="presentation" style="background-image: url('../../images/flags/uk.png')"></div>
+            <h3 class="nhsuk-timeline__title"><a href="view-H001">H001</a>
+              <span class="nhsuk-timeline__byline">sent by <strong>clangley</strong></span>
+            </h3>
+
+          </div>
+          <div class="nhsuk-timeline__date">
+            <time>30 January 2024 at 10.15am</time>
+          </div>
+
+
+          <p class="nhsuk-body-s">Unable to establish UK competency based on information provided. Please confirm UK
+            address.</p>
+
+          <p class="nhsuk-u-margin-bottom-0 nhs">
+            <span class="icon" role="presentation">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#007f3b">
+                <path
+                  d="M638-80 468-250l56-56 114 114 226-226 56 56L638-80ZM480-520l320-200H160l320 200Zm0 80L160-640v400h206l80 80H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v174l-80 80v-174L480-440Zm0 0Zm0-80Zm0 80Z" />
+              </svg>
+            </span> Received by member state
+          </p>
+
+
+          <ul class="nhsuk-list nhsuk-body-s">
+
+            <li>
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    Actions (2)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <ul class="nhsuk-list">
+                    <li><a href=""><a>Action 1</a></li>
+                    <li><a href="">Action 2</a></li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </li>
+        {% endif %}
+
+
+        <!-- SO44 -->
+        <li class="nhsuk-timeline__events--entry">
+
+
+          <div class="nhsuk-timeline__header">
+            <div class="flag" role="presentation" style="background-image: url('../../images/flags/fr.png')"></div>
+            <!-- <img src="../../images/flags/fr.png" alt="French flag" width="32" height="32"> -->
+            <h3 class="nhsuk-timeline__title"><a href="view-s044">{{data.applicant.incomingSED}}</a></h3>
+            <p class="nhsuk-timeline__byline">received from <strong>{{data.applicant.memberstate}}</strong></p>
+          </div>
+          <p class="nhsuk-timeline__date">
+            <time>28 January 2024 at 9.28am</time>
+          </p>
+
+          <ul class="nhsuk-list nhsuk-body-s">
+            <li>
+              <details class="nhsuk-details nhsuk-u-margin-bottom-2">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    Attachments (1)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <ul class="nhsuk-list">
+                    <li>scanneddocument.pdf <a href="">Download</a></li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+            <li>
+              <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                  <span class="nhsuk-details__summary-text">
+                    Actions (1)
+                  </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                  <ul class="nhsuk-list">
+                    <li><a href="">Create S045</a></li>
+                  </ul>
+                </div>
+              </details>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+
+    <!-- Closing app-pane side bar-->
+  </div>
+
+  <!--***********************************************-->
+  <!--                 CASE DETAILS                  -->
+  <!--***********************************************-->
+
+  <div class="app-pane__main-content app-pane-fixed__main-content">
+
+    <div
+      class="nhsuk-grid-row nhsuk-u-padding-top-6 nhsuk-u-padding-right-6 nhsuk-u-padding-left-6 nhsuk-u-padding-bottom-0">
+      <div class="nhsuk-grid-column-full">
+
+        <h2 class="app-page-heading">
+          <span class="nhsuk-caption-m">
+            Local ID: 29014
+            <span class="nhsuk-u-visually-hidden"> - </span>
+          </span>
+          Case details
+        </h2>
+
+        <dl class="nhsuk-summary-list">
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Full name
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.firstname}} {{data.applicant.lastname}}
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              RINA international case ID
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.rinaReference}}
+            </dd>
+
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.dob}}
+            </dd>
+          </div>
+
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{address(data.applicant.address)}}
+            </dd>
+
+          </div>
+
+          {% if data.applicant.incomingSED == "S071" %}
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.NINO}}
+            </dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Start date of entitlement
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.startdate}}
+            </dd>
+          </div>
+
+
+          {% endif %}
+          {% if data.applicant.incomingSED == "S044" %}
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Treatment start date
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.startdate}}
+            </dd>
+          </div>
+
+          <div class="nhsuk-summary-list__row">
+            <dt class="nhsuk-summary-list__key">
+              Treatment end date
+            </dt>
+            <dd class="nhsuk-summary-list__value">
+              {{data.applicant.enddate}}
+            </dd>
+          </div>
+
+
+          {% endif %}
+
+        </dl>
+
+        <!--***************************** -->
+        <!-- MATCHED OHS RECORD COMPONENT -->
+        <!--***************************** -->
+        <div class="nhsuk-card nhsuk-u-margin-bottom-4">
+          <div class="nhsuk-card__content">
+            <h2 class="nhsuk-card__heading nhsuk-heading-s nhsuk-u-margin-bottom-2">
+              Matched OHS record
+            </h2>
+
+            {% if not data.applicant.responseSED.created %}
+            <details class="nhsuk-details">
+              <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                  Edit search
+                </span>
+              </summary>
+              <div class="nhsuk-details__text">
+
+                <fieldset class="nhsuk-fieldset">
+
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="firstname">
+                      First name
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-one-half" id="firstname" name="firstname" type="text"
+                      value={{data.applicant.firstname}}>
+                  </div>
+
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="lastname">
+                      Last name
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-one-half" id="lastname" name="lastname" type="text"
+                      value={{data.applicant.lastname}}>
+                  </div>
+
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="dateofbirth">
+                      Date of birth
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-one-half" id="dateofbirth" name="dateofbirth" type="text"
+                      value="{{data.applicant.dob}}">
+                  </div>
+
+                  <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="NINO">
+                      National Insurance number (optional)
+                    </label>
+                    <input class="nhsuk-input nhsuk-u-width-one-half" id="NINO" name="NINO" type="text"
+                      value="{{data.applicant.NINO}}">
+                  </div>
+
+                </fieldset>
+
+                <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+                  Search
+                </button>
+
+              </div>
+            </details>
+            {% endif %}
+
+            <form action="case-details" method="post">
+
+              {% if data.applicant.inOHS %}
+              <table class="nhsuk-table nhsuk-u-margin-bottom-4">
+                <thead role="rowgroup" class="nhsuk-table__head">
+                  <tr role="row">
+                    <th role="columnheader" class="" scope="col">Full name</th>
+                    <th role="columnheader" class="" scope="col">Date of birth</th>
+                    <th role="columnheader" class="" scope="col">Address</th>
+                    <th role="columnheader" class="" scope="col">S045 entitlement</th>
+                  </tr>
+                </thead>
+
+                <tbody class="nhsuk-table__body">
+                  <tr role="row" class="nhsuk-table__row">
+                    <td class="nhsuk-table__cell"><a href="../ohs/case-details"
+                        target="blank">{{data.applicant.firstname}} {{data.applicant.lastname}}</a></td>
+                    <td class="nhsuk-table__cell">{{data.applicant.dob}}</td>
+                    <td class="nhsuk-table__cell">
+                      {% if data.applicant.address_OHS %}
+                      {{address(data.applicant.address_OHS)}}
+                      {% else %}
+                      {{address(data.applicant.address)}}
+                      {% endif %}
+                    </td>
+                    <td class="nhsuk-table__cell">
+                      {% if data.applicant.responseSED.created %}
+
+                      {% switch data.applicant.responseSED.status %}
+                      {% case "issued" %}
+                      <strong class="nhsuk-tag nhsuk-tag--green">Issued</strong>
+                      {% case "rejected" %}
+                      <strong class="nhsuk-tag nhsuk-tag--red">Rejected</strong>
+                      {% default %}
+                      <strong class="nhsuk-tag nhsuk-tag--yellow">Pending check</strong>
+                      {% endswitch %}
+
+                      {% else %}
+                      <button class="nhsuk-button nhsuk-button" data-module="nhsuk-button" type="submit">
+                        Create entitlement
+                      </button>
+                      {% endif %}
+                    </td>
+                  </tr>
+
+                </tbody>
+                {% else %}
+
+                <p>No match found.</p>
+
+
+                {% endif %}
+
+              </table>
+
+              {% if not data.applicant.responseSED.created %}
+              <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" data-module="nhsuk-button"
+                type="submit">
+                Create new record and entitlement
+              </button>
+              {% endif %}
+
+            </form>
+
+
+          </div>
+        </div>
+
+        <form action="case-details" method="post">
+
+          {% if data.applicant.caseStatus == 'open' %}
+
+          {% if data.applicant.responseSED.sent %}
+          <button class="nhsuk-button nhsuk-button" data-module="nhsuk-button" type="submit">
+            Close case
+          </button>
+
+          {% elseif data.applicant.responseSED.created and (data.applicant.responseSED.status != 'pending') %}
+          <button class="nhsuk-button nhsuk-button" data-module="nhsuk-button" type="submit">
+            Send S045 to member state
+          </button>
+
+          {% endif %}
+
+          {% endif %}
+
+        </form>
+
+      </div>
+    </div>
+
+    {% endblock %}
+
+    {% block footer %}
+    {% endblock %}
